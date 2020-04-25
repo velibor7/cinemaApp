@@ -1,6 +1,7 @@
 package com.example.cinemaApp.models;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -39,7 +40,7 @@ public class User implements Serializable {
     private String email;
 
     @Column
-    private String dateOfBirth;
+    private Date dateOfBirth;
 
     @Column
     private String role;
@@ -51,7 +52,7 @@ public class User implements Serializable {
     }
 
     public User(String username, String password, String name, String surname, String role, String phoneNumber,
-            String email, String dateOfBirth, Boolean active) {
+            String email, Date dateOfBirth, Boolean active) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -64,7 +65,7 @@ public class User implements Serializable {
     }
 
     public User(Integer id, String username, String password, String name, String surname, String role,
-            String phoneNumber, String email, String dateOfBirth, Boolean active) {
+            String phoneNumber, String email, Date dateOfBirth, Boolean active) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -141,11 +142,11 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getdateOfBirth() {
+    public Date getdateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setdateOfBirth(String dateOfBirth) {
+    public void setdateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
