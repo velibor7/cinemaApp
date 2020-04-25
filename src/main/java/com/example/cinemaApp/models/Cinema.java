@@ -37,8 +37,9 @@ public class Cinema implements Serializable {
     @Column
     private String email;
 
-    @Column
-    private Manager manager;
+    // ? Koji je odnos manager bioskop?
+
+    // private Manager manager;
 
     @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Auditorium> auditoriums = new HashSet<>();
