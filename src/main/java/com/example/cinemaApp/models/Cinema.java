@@ -1,17 +1,8 @@
 package com.example.cinemaApp.models;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import java.util.*;
+import javax.persistence.*;
 
 @Entity
 public class Cinema implements Serializable {
@@ -37,13 +28,16 @@ public class Cinema implements Serializable {
     @Column
     private String email;
 
-    // ? Koji je odnos manager bioskop?
+    // ! eager - sve odma, lazy tek kad pozovemo neku metdou
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Manager manager;
 
-    // private Manager manager;
-
+    // * lista sala
     @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Auditorium> auditoriums = new HashSet<>();
 
-    // RASPORED ODRZAVANJA FILMOVA ZAJEDNO SA CENAMA ZA SVAKU PROJEKCIJU
+    // ! RASPORED ODRZAVANJA FILMOVA ZAJEDNO SA CENAMA ZA SVAKU PROJEKCIJU
+    @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Projection> projectionsSchedule = new HashSet<>();
 
 }

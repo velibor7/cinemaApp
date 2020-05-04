@@ -1,22 +1,8 @@
 package com.example.cinemaApp.models;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-
+import java.util.*;
 import javax.persistence.*;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-
-import org.hibernate.validator.cfg.context.Cascadable;
 
 @Entity
 public class Movie implements Serializable {
@@ -46,24 +32,12 @@ public class Movie implements Serializable {
     private Long grade;
 
     @ManyToMany(mappedBy = "watchedMovies")
-    // @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    // @JoinTable(name = "watchedMovies", joinColumns = @JoinColumn(name =
-    // "user_id", referencedColumnName = "id"), inverseJoinColumns =
-    // @JoinColumn(name = "movie_id", referencedColumnName = "id"))
-    // private Set<Viewer> viewersWhoWatched = new HashSet<>();
-    private Set<Viewer> watched;
+    private Set<Viewer> peopleWatched = new HashSet<>();
 
-    // !? GDE SE KORISTI RESERVED
     @ManyToMany(mappedBy = "reservedMovies")
-    // @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    // @JoinTable(name = "watchedMovies", joinColumns = @JoinColumn(name =
-    // "user_id", referencedColumnName = "id"), inverseJoinColumns =
-    // @JoinColumn(name = "movie_id", referencedColumnName = "id"))
-    // private Set<Viewer> viewersWhoReserved = new HashSet<>();
-    private Set<Viewer> reserved;
+    private Set<Viewer> peopleReserved = new HashSet<>();
 
-    @ManyToMany(mappedBy = "movies")
-    private Set<Auditorium> auditoriumsWhereMovieIs = new HashSet<>();
+    // ! METHODS
 
     public static long getSerialversionuid() {
         return serialVersionUID;

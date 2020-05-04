@@ -3,11 +3,6 @@ package com.example.cinemaApp.models;
 import java.util.Set;
 import java.util.*;
 import javax.persistence.*;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 
 @Entity
 public class Viewer extends User {

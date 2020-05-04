@@ -1,19 +1,11 @@
 package com.example.cinemaApp.models;
 
+import java.io.Serializable;
 import java.util.*;
 import javax.persistence.*;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 
 @Entity
-public class Auditorium {
+public class Auditorium implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,16 +14,23 @@ public class Auditorium {
     @Column
     private Integer capacity;
 
+    // oznaka sale
     @Column
     private String label;
 
-    // sadrzi film i broj rezervisanih karata za datu projekciju
-    @ManyToMany
-    @JoinTable(name = "movies", joinColumns = @JoinColumn(name = "auditorium_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "movie_id", referencedColumnName = "id"))
-    private Set<Movie> movies = new HashSet<>();
-
+    // ? da li je potrebno da bude dvosmerna veza sale i bioskopa?
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     Cinema cinema;
 
-    // TERMINSKA LISTA PROJEKCIJA
+    // !wrong sadrzi film i broj rezervisanih karata za datu projekciju
+    // @ManyToMany
+    // @JoinTable(name = "movies", joinColumns = @JoinColumn(name = "auditorium_id",
+    // referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name =
+    // "movie_id", referencedColumnName = "id"))
+    // private Set<Movie> movies = new HashSet<>();
+
+    // * list of projections in this auditorium
+    @ManyToMany
+    @JoinTable(name = "projections", joinColumns = @JoinColumn(name = "auditorium_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "projection_id", referencedColumnName = "id"))
+    private Set<Projection> projectionsList = new HashSet<>();
 }
