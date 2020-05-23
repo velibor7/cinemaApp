@@ -12,8 +12,9 @@ public class Projection implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    // ! treba da se promeni u date
     @Column
-    private Date day;
+    private String day;
 
     @Column
     private Time time;

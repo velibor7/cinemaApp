@@ -20,7 +20,7 @@ public class Cinema implements Serializable {
     private String name;
 
     @Column
-    private String adress;
+    private String address;
 
     @Column
     private String phoneNumber;
@@ -34,10 +34,18 @@ public class Cinema implements Serializable {
 
     // * lista sala
     @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Auditorium> auditoriums = new HashSet<>();
+    private final Set<Auditorium> auditoriums = new HashSet<>();
 
     // ! RASPORED ODRZAVANJA FILMOVA ZAJEDNO SA CENAMA ZA SVAKU PROJEKCIJU
     @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Projection> projectionsSchedule = new HashSet<>();
+    private final Set<Projection> projectionsSchedule = new HashSet<>();
+
+    public Cinema(String name, String address, String phoneNumber, String email, Manager manager) {
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.manager = manager;
+    }
 
 }

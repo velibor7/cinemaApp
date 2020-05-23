@@ -7,11 +7,6 @@ import javax.persistence.*;
 @Entity
 public class User implements Serializable {
 
-    /**
-     *
-     */
-    private static final long serialVersionUID = -1748176346299308185L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -35,7 +30,7 @@ public class User implements Serializable {
     private String email;
 
     @Column
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
     @Column
     private String role;
@@ -47,7 +42,7 @@ public class User implements Serializable {
     }
 
     public User(String username, String password, String name, String surname, String role, String phoneNumber,
-            String email, Date dateOfBirth, Boolean active) {
+            String email, String dateOfBirth, Boolean active) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -60,7 +55,7 @@ public class User implements Serializable {
     }
 
     public User(Integer id, String username, String password, String name, String surname, String role,
-            String phoneNumber, String email, Date dateOfBirth, Boolean active) {
+            String phoneNumber, String email, String dateOfBirth, Boolean active) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -137,11 +132,11 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public Date getdateOfBirth() {
+    public String getdateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setdateOfBirth(Date dateOfBirth) {
+    public void setdateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
