@@ -33,35 +33,38 @@ VALUES
 
 -- USER
 
+ALTER TABLE USER DROP COLUMN DTYPE;
 
 INSERT INTO USER
-    (dtype, username, password, name, surname, phone_number, email, date_of_birth, role, active)
+    (username, password, name, surname, phone_number, email, date_of_birth, role, active)
 VALUES
-    ('what', 'pero', 'pero123', 'Petar', 'Petrovic', '+381 63 963 854', 'pero@test.com', '01.01.1999', 'viewer', TRUE)
--- INSERT INTO USER
--- (dtype, username, password, name, surname, phone_number, email, date_of_birth, role, active)
--- VALUES
--- ('fuck', 'mare', 'mare123', 'Marko', 'Markovic', '+381 63 111 224', 'mare@test.com', '03.11.1983', 'admin', TRUE)
+    ('pero', 'pero123', 'Petar', 'Petrovic', '+381 63 963 854', 'pero@test.com', '01.01.1999', 'admin', TRUE);
 
+INSERT INTO USER
+    (username, password, name, surname, phone_number, email, date_of_birth, role, active)
+VALUES
+    ('mare', 'mare123', 'Marko', 'Markovic', '+381 63 234 612', 'mare@test.com', '01.01.1999', 'manager', TRUE);
+INSERT INTO USER
+    (username, password, name, surname, phone_number, email, date_of_birth, role, active)
+VALUES
+    ('djoka', 'djoka123', 'Djordje', 'Djurendic', '+381 63 333 183', 'djoka@test.com', '01.01.1999', 'viewer', TRUE);
 
 -- MOVIE
 
-/*
+
 INSERT INTO MOVIE
     (name, description, genre, duration, grade)
 VALUES
-    ('Random title', 'Random desc lalal', 'action', 150, 8.8)
+    ('Random title', 'Random desc lalal', 'action', 150, 8.8);
 
 --! PROJECTION (single)
 INSERT INTO PROJECTION
     (day, time, price, movie_id)
 VALUES
-    (TO_DATE('07.05.2020.',
-'DD.MM.YYY.'), '20
-:00', 1)
+    (TO_DATE('07.05.2020.','DD.MM.YYY.'), '20:00', 300, 1);
+
 
 --! PROJECTIONS (THIS IS CONNECTION )
 INSERT INTO PROJECTIONS
     (auditorium_id, projection_id)
-VALUES(1, 1)
-*/
+VALUES(1, 1);
