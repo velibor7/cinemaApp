@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface ManagerRepository extends JpaRepository<Manager, Long> {
 
-    List<Manager> findAllByPositionOrderByFirstName(String position);
+    // List<Manager> findAllByPositionOrderByFirstName(String position);
 
-    List<Manager> findByFirstNameOrLastName(String firstName, String lastName);
+    // List<Manager> findByFirstNameOrLastName(String firstName, String lastName);
 
-    List<Manager> findByFirstNameIgnoreCase(String firstName);
+    // List<Manager> findByFirstNameIgnoreCase(String firstName);
 }

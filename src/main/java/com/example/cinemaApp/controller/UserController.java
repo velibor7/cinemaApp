@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "api/user")
 public class UserController {
-    @Autowired
-    private UserService userService;
+    // @Autowired
+    // private UserService userService;
 
     @GetMapping("/")
     public String welcome() {

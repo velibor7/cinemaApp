@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface ViewerRepository extends JpaRepository<Viewer, Long> {
 
-    List<Viewer> findAllByPositionOrderByFirstName(String position);
+    // List<Viewer> findAllByPositionOrderByFirstName(String position);
 
-    List<Viewer> findByFirstNameOrLastName(String firstName, String lastName);
+    // List<Viewer> findByFirstNameOrLastName(String firstName, String lastName);
 
-    List<Viewer> findByFirstNameIgnoreCase(String firstName);
+    // List<Viewer> findByFirstNameIgnoreCase(String firstName);
 }
