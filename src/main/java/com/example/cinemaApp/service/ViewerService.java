@@ -2,15 +2,15 @@ package com.example.cinemaApp.service;
 
 import java.util.List;
 
-import com.example.cinemaApp.models.User;
 import com.example.cinemaApp.models.Viewer;
-import com.example.cinemaApp.repository.viewerRepository;
+import com.example.cinemaApp.repository.ViewerRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ViewerService {
+
     @Autowired
     private ViewerRepository viewerRepo;
 
@@ -20,11 +20,11 @@ public class ViewerService {
     }
 
     public List<Viewer> findAll() {
-        List<User> users = this.viewerRepo.findAll();
-        return users;
+        List<Viewer> viewers = this.viewerRepo.findAll();
+        return viewers;
     }
 
-    public User save(User user) {
-        return this.viewerRepo.save(user);
+    public Viewer save(Viewer viewer) {
+        return this.viewerRepo.save(viewer);
     }
 }

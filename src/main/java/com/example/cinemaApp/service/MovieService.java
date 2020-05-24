@@ -2,26 +2,29 @@ package com.example.cinemaApp.service;
 
 import java.util.List;
 
-import com.example.cinemaApp.models.User;
+import com.example.cinemaApp.models.Movie;
+import com.example.cinemaApp.repository.MovieRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MovieService {
+
     @Autowired
     private MovieRepository movieRepo;
 
-    public User findOne(Long id) {
-        User user = this.movieRepo.getOne(id);
-        return user;
+    public Movie findOne(Long id) {
+        Movie movie = this.movieRepo.getOne(id);
+        return movie;
     }
 
-    public List<User> findAll() {
-        List<User> users = this.movieRepo.findAll();
-        return users;
+    public List<Movie> findAll() {
+        List<Movie> movies = this.movieRepo.findAll();
+        return movies;
     }
 
-    public User save(User user) {
-        return this.movieRepo.save(user);
+    public Movie save(Movie movie) {
+        return this.movieRepo.save(movie);
     }
 }
