@@ -11,10 +11,10 @@ const routes: Routes = [
   {
     path: "",
     component: HomeComponent,
-    children: [
-      { path: "", component: MovieStartComponent },
-      { path: ":id", component: MovieDetailComponent },
-    ],
+    // children: [
+    // { path: "", component: MovieStartComponent },
+    // { path: ":id", component: MovieDetailComponent },
+    // ],
   },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
