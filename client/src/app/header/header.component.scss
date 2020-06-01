@@ -46,23 +46,6 @@ $primary: #a00000;
     }
   }
 
-  .button-submit {
-    cursor: pointer;
-    font-family: "Monserrat", sans-serif;
-    display: inline-flex;
-    transition-duration: 0.3s;
-    height: 2em;
-    color: #000;
-    background-color: transparent;
-    border: 1px solid $primary;
-    border-radius: 3px;
-    padding-bottom: 1em 1em 1em 1em;
-    margin: 0;
-    &:hover {
-      background-color: $primary;
-      color: #fff;
-    }
-  }
   .button {
     cursor: pointer;
     font-family: "Monserrat", sans-serif;

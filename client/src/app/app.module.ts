@@ -7,6 +7,9 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { MovieListComponent } from './home/movie-list/movie-list.component';
+import { MovieDetailComponent } from './home/movie-detail/movie-detail.component';
+import { ReservationsComponent } from './reservations/reservations.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { RegisterComponent } from './auth/register/register.component';
     HomeComponent,
     HeaderComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MovieListComponent,
+    MovieDetailComponent,
+    ReservationsComponent
   ],
   imports: [
     BrowserModule,

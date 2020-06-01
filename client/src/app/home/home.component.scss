@@ -1,0 +1,21 @@
+.main-container {
+  display: flex;
+
+  .card {
+    width: 45%;
+    border: 1px solid black;
+    margin: 1em;
+    height: 80vh;
+    padding: 1em;
+  }
+  app-movie-list {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  app-movie-detail {
+    // ...
+  }
+}
