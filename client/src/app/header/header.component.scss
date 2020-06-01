@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Tangerine&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
+$primary: #a00000;
+
 .header-container {
   // z-index: 30;
   margin: 0;
@@ -22,7 +24,7 @@
     // font-family: "Tangerine", sans-serif;
     // font-size: 2em;
     // align-items: center;
-    // cursor: pointer;
+    cursor: pointer;
     // margin-left: 0.5em;
   }
   nav {
@@ -52,12 +54,12 @@
     height: 2em;
     color: #000;
     background-color: transparent;
-    border: 1px solid #00dc21;
+    border: 1px solid $primary;
     border-radius: 3px;
     padding-bottom: 1em 1em 1em 1em;
     margin: 0;
     &:hover {
-      background-color: #00dc21;
+      background-color: $primary;
       color: #fff;
     }
   }
@@ -74,7 +76,7 @@
     padding-bottom: 1em 1em 1em 1em;
     margin: 0.5em;
     &:hover {
-      background-color: #00dc21;
+      background-color: $primary;
       color: #fff;
     }
   }

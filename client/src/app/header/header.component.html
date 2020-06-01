@@ -1,11 +1,23 @@
 <div class="header-container">
-    <img src="../../assets/logo3.png" alt="cinemaApp" class="logo">
-    <!-- <input  class="search" type="search" placeholder="What do you want to watch today?"> -->
-    <nav>
-        <ul>
-            <!-- <button class="button" routerLink="/login">LOGIN</button> -->
-            <!-- <button class="button" routerLink="/signup">SIGN UP</button> -->
-            <!-- <button class="button" (click)="onLogout()">LOGOUT</button> -->
-        </ul>
-    </nav>
+  <img
+    [src]="'../../assets/img/logo3.png'"
+    alt="cinemaApp"
+    class="logo"
+    routerLink="/"
+  />
+  <!-- <input  class="search" type="search" placeholder="What do you want to watch today?"> -->
+<nav>
+    <ul>
+        <li><a routerLink="/">Reservations</a></li>
+        <li><a routerLink="/">Reservations</a></li>
+        <li><a routerLink="/">Reservations</a></li>
+        <li><a routerLink="/">Reservations</a></li>
+    </ul>
+</nav>
+    <div class="authStuff">
+
+        <button class="button" routerLink="/login">LOGIN</button>
+        <button class="button" routerLink="/signup">SIGN UP</button>
+        <button class="button" (click)="onLogout()">LOGOUT</button>
+    </div>
 </div>
