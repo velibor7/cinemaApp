@@ -10,6 +10,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { MovieListComponent } from './home/movie-list/movie-list.component';
 import { MovieDetailComponent } from './home/movie-detail/movie-detail.component';
 import { ReservationsComponent } from './reservations/reservations.component';
+import { MovieStartComponent } from './home/movie-start/movie-start.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReservationsComponent } from './reservations/reservations.component';
     RegisterComponent,
     MovieListComponent,
     MovieDetailComponent,
-    ReservationsComponent
+    ReservationsComponent,
+    MovieStartComponent
   ],
   imports: [
     BrowserModule,
