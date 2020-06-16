@@ -47,5 +47,4 @@ public class Cinema implements Serializable {
         this.email = email;
         this.manager = manager;
     }
-
 }

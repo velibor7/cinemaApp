@@ -1,5 +1,6 @@
 package com.example.cinemaApp.controller;
 
+import com.example.cinemaApp.dto.UserDTO;
 import com.example.cinemaApp.models.User;
 import com.example.cinemaApp.service.UserService;
 
@@ -29,11 +30,12 @@ public class UserController {
     // ! AUTH
 
     @RequestMapping(value = "/register", method = RequestMethod.POST, consumes = "application/json")
-    public ResponseEntity add(@RequestBody User user) {
+    public ResponseEntity<UserDTO> add(@RequestBody UserDTO userDTO) {
         // System.out.print("hit");
         // return new ResponseEntity<>();
-        System.out.println(user);
-        return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
+        // System.out.println(userDTO);
 
+        // ! acc - created
+        return new ResponseEntity<>(userDTO, HttpStatus.ACCEPTED);
     }
 }
