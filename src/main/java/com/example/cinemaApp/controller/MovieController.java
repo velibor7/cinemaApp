@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value = "api/movie")
+// @RequestMapping(value = "api/movie")
 public class MovieController {
 
     // @Autowired

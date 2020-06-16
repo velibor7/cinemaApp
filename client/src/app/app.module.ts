@@ -13,6 +13,9 @@ import { ReservationsComponent } from "./reservations/reservations.component";
 import { MovieStartComponent } from "./home/movie-start/movie-start.component";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { AuthInterceptor } from "./auth/auth-interceptor";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,8 +28,20 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     ReservationsComponent,
     MovieStartComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

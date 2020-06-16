@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/api/manager")
+// @RequestMapping("/api/manager")
 public class ManagerController {
     // @Autowired
     // private ManagerService managerService;

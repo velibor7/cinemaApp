@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface AdminRepository extends JpaRepository<Admin, Long> {
 
-    // List<Admin> findAllByPositionOrderByFirstName(String position);
+    // List<Admin> findAllByPositionOrderByName(String position);
 
-    // List<Admin> findByFirstNameOrLastName(String firstName, String lastName);
+    // List<Admin> findByNameOrLastName(String firstName, String lastName);
 
-    // List<Admin> findByFirstNameIgnoreCase(String firstName);
+    // List<Admin> findByNameIgnoreCase(String firstName);
 }

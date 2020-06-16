@@ -11,20 +11,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdminService {
 
-    @Autowired
-    private AdminRepository adminRepository;
-
-    public Admin findOne(Long id) {
-        Admin admin = this.adminRepository.getOne(id);
-        return admin;
-    }
-
-    public List<Admin> findAll() {
-        List<Admin> admins = this.adminRepository.findAll();
-        return admins;
-    }
-
-    public Admin save(Admin admin) {
-        return this.adminRepository.save(admin);
-    }
+    /*
+     * @Autowired private AdminRepository adminRepository;
+     * 
+     * public Admin findOne(Long id) { Admin admin =
+     * this.adminRepository.getOne(id); return admin; }
+     * 
+     * public List<Admin> findAll() { List<Admin> admins =
+     * this.adminRepository.findAll(); return admins; }
+     * 
+     * public Admin save(Admin admin) { return this.adminRepository.save(admin); }
+     */
 }
