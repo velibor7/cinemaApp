@@ -15,6 +15,9 @@ import { MovieStartComponent } from "./home/movie-start/movie-start.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "./auth/auth-interceptor";
+import { MeComponent } from './me/me.component';
+import { AdminComponent } from './admin/admin.component';
+import { AddcinemaComponent } from './admin/addcinema/addcinema.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { AuthInterceptor } from "./auth/auth-interceptor";
     MovieDetailComponent,
     ReservationsComponent,
     MovieStartComponent,
+    MeComponent,
+    AdminComponent,
+    AddcinemaComponent,
   ],
   imports: [
     BrowserModule,

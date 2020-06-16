@@ -4,8 +4,9 @@ import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { RegisterComponent } from "./auth/register/register.component";
 import { ReservationsComponent } from "./reservations/reservations.component";
-import { MovieStartComponent } from "./home/movie-start/movie-start.component";
-import { MovieDetailComponent } from "./home/movie-detail/movie-detail.component";
+import { MeComponent } from "./me/me.component";
+import { AdminComponent } from "./admin/admin.component";
+import { AddcinemaComponent } from "./admin/addcinema/addcinema.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,9 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "reservations", component: ReservationsComponent },
+  { path: "me", component: MeComponent },
+  { path: "admin", component: AdminComponent },
+  { path: "admin/addcinema", component: AddcinemaComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,53 @@
+<div class="addc-card">
+  <div class="form">
+    <form
+      class="login-form"
+      (submit)="onAddCinema(cinemaForm)"
+      #cinemaForm="ngForm"
+    >
+      <input
+        type="text"
+        placeholder="cinema name"
+        name="cname"
+        ngModel
+        #cnameInput="ngModel"
+      />
+      <br />
+      <input
+        type="text"
+        placeholder="address"
+        name="address"
+        ngModel
+        #addressInput="ngModel"
+      />
+      <br />
+      <input
+        type="text"
+        placeholder="phone number"
+        name="phonenum"
+        ngModel
+        #phonenumInput="ngModel"
+      />
+      <br />
+      <input
+        type="text"
+        placeholder="manager"
+        name="manager"
+        ngModel
+        #managerInput="ngModel"
+      />
+      <br />
+      <!--
+            
+            <input
+            type="email"
+            placeholder="phone number"
+            name="phonenum"
+            ngModel
+            #phonenumInput="ngModel"
+            />
+        -->
+      <button type="submit">ADD CINEMA</button>
+    </form>
+  </div>
+</div>

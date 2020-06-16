@@ -9,13 +9,13 @@
 <nav>
     <ul>
         <li><a routerLink="/reservations">Moje rezervacije</a></li>
-        <!-- <li><a routerLink="/">Reservations</a></li> --> 
+        <li><a routerLink="/admin">Admin stuff</a></li> 
         <!-- <li><a routerLink="/">Reservations</a></li> --> 
         <!-- <li><a routerLink="/">Reservations</a></li> --> 
     </ul>
 </nav>
     <div class="authStuff">
-
+        <a routerLink="/me">Me</a>
         <button class="button" routerLink="/login">LOGIN</button>
         <button class="button" routerLink="/register">SIGN UP</button>
         <button class="button" (click)="onLogout()">LOGOUT</button>
