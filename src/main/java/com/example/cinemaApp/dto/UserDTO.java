@@ -13,25 +13,6 @@ public class UserDTO {
     private String role;
     private Boolean active;
 
-    /*
-     * public User() { }
-     * 
-     * public User(String username, String password, String name, String surname,
-     * String role, String phoneNumber, String email, String dateOfBirth, Boolean
-     * active) { this.username = username; this.password = password; this.name =
-     * name; this.surname = surname; this.role = role; this.phoneNumber =
-     * phoneNumber; this.email = email; this.dateOfBirth = dateOfBirth; this.active
-     * = active; }
-     * 
-     * public User(Long id, String username, String password, String name, String
-     * surname, String role, String phoneNumber, String email, String dateOfBirth,
-     * Boolean active) { this.id = id; this.username = username; this.password =
-     * password; this.name = name; this.surname = surname; this.role = role;
-     * this.phoneNumber = phoneNumber; this.email = email; this.dateOfBirth =
-     * dateOfBirth; this.active = active; }
-     * 
-     */
-
     public Long getId() {
         return id;
     }

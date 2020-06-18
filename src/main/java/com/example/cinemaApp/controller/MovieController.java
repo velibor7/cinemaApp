@@ -22,22 +22,11 @@ public class MovieController {
     @Autowired
     private MovieService movieService;
 
-    // @GetMapping("/movies")
-    // public String getMovies(Model model) {
-    // List<Movie> movieList = this
-    // }
-
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Movie>> getMovies() {
-        // System.out.print("hit");
-        // return new ResponseEntity<>();
-        // System.out.println(userDTO);
-
         List<Movie> movies;
-
         movies = movieService.findAll();
-
-        // ! acc - created
+        // fali dto
         return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 
