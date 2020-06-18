@@ -17,12 +17,15 @@ public interface UserRepository extends JpaRepository<User, Long> {
     /*
      * Traži sve zaposlene po imenu, ignorišu se mala i velika slova.
      */
+
     List<User> findByNameIgnoreCase(String firstName);
 
     /*
      * Traži sve zaposlene po nazivu departmana.
      */
     // List<User> findByDepartmentName(String departmentName);
+
+    User findByUsername(String username);
 }
 /*
  * Repository je interfejs koji služi za komunikaciju sa bazom iz koje izvlači

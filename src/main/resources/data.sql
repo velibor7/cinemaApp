@@ -1,3 +1,20 @@
+-- USER
+
+ALTER TABLE USER DROP COLUMN DTYPE;
+
+INSERT INTO USER
+    (username, password, name, surname, phone_number, email, date_of_birth, role, active)
+VALUES
+    ('pero', 'pero123', 'Petar', 'Petrovic', '+381 63 963 854', 'pero@test.com', '01.01.1999', 'admin', TRUE);
+
+INSERT INTO USER
+    (username, password, name, surname, phone_number, email, date_of_birth, role, active)
+VALUES
+    ('mare', 'mare123', 'Marko', 'Markovic', '+381 63 234 612', 'mare@test.com', '01.01.1999', 'manager', TRUE);
+INSERT INTO USER
+    (username, password, name, surname, phone_number, email, date_of_birth, role, active)
+VALUES
+    ('djoka', 'djoka123', 'Djordje', 'Djurendic', '+381 63 333 183', 'djoka@test.com', '01.01.1999', 'viewer', TRUE);
 -- CINEMA
 
 INSERT INTO CINEMA
@@ -31,23 +48,6 @@ VALUES
     (50, 'B2', 2);
 
 
--- USER
-
-ALTER TABLE USER DROP COLUMN DTYPE;
-
-INSERT INTO USER
-    (username, password, name, surname, phone_number, email, date_of_birth, role, active)
-VALUES
-    ('pero', 'pero123', 'Petar', 'Petrovic', '+381 63 963 854', 'pero@test.com', '01.01.1999', 'admin', TRUE);
-
-INSERT INTO USER
-    (username, password, name, surname, phone_number, email, date_of_birth, role, active)
-VALUES
-    ('mare', 'mare123', 'Marko', 'Markovic', '+381 63 234 612', 'mare@test.com', '01.01.1999', 'manager', TRUE);
-INSERT INTO USER
-    (username, password, name, surname, phone_number, email, date_of_birth, role, active)
-VALUES
-    ('djoka', 'djoka123', 'Djordje', 'Djurendic', '+381 63 333 183', 'djoka@test.com', '01.01.1999', 'viewer', TRUE);
 
 -- MOVIE
 
@@ -56,6 +56,22 @@ INSERT INTO MOVIE
     (name, description, genre, duration, grade)
 VALUES
     ('Random title', 'Random desc lalal', 'action', 150, 8.8);
+INSERT INTO MOVIE
+    (name, description, genre, duration, grade)
+VALUES
+    ('Random title2', 'Random desc lalal2', 'comedy', 100, 4.7);
+INSERT INTO MOVIE
+    (name, description, genre, duration, grade)
+VALUES
+    ('Random title3', 'Random desc lalal3', 'action', 110, 9.8);
+INSERT INTO MOVIE
+    (name, description, genre, duration, grade)
+VALUES
+    ('Random title4', 'Random desc lalal4', 'drama', 159, 8.1);
+INSERT INTO MOVIE
+    (name, description, genre, duration, grade)
+VALUES
+    ('Random title5', 'Random desc lalal5', 'drama', 210, 2.5);
 
 --! PROJECTION (single)
 INSERT INTO PROJECTION
