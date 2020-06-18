@@ -1,5 +1,7 @@
 package com.example.cinemaApp.controller;
 
+import java.util.List;
+
 import com.example.cinemaApp.dto.UserDTO;
 import com.example.cinemaApp.models.User;
 import com.example.cinemaApp.service.UserService;
@@ -39,12 +41,13 @@ public class UserController {
         return new ResponseEntity<>(userDTO, HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(value = "/pero", method = RequestMethod.GET)
-    public ResponseEntity<String> getUser() {
+    // ? jaoo
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ResponseEntity<List<User>> getUser() {
+        List<User> users;
+        users = userService.findAll();
 
-        User user = userService.findByUsername("pero");
-
-        return new ResponseEntity<>("bla", HttpStatus.OK);
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
 }

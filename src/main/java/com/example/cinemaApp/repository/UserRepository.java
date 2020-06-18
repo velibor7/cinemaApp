@@ -12,13 +12,13 @@ public interface UserRepository extends JpaRepository<User, Long> {
     /*
      * Traži sve zaposlene po imenu ili prezimenu.
      */
-    List<User> findByNameOrSurname(String firstName, String lastName);
+    List<User> findByFirstnameOrSurname(String firstName, String lastName);
 
     /*
      * Traži sve zaposlene po imenu, ignorišu se mala i velika slova.
      */
 
-    List<User> findByNameIgnoreCase(String firstName);
+    List<User> findByFirstnameIgnoreCase(String firstName);
 
     /*
      * Traži sve zaposlene po nazivu departmana.

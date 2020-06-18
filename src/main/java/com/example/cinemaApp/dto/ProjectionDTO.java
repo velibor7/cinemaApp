@@ -30,11 +30,11 @@ public class ProjectionDTO {
         this.day = day;
     }
 
-    public Time getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
@@ -46,27 +46,19 @@ public class ProjectionDTO {
         this.price = price;
     }
 
-    public Movie getMovie() {
-        return movie;
-    }
-
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }
-
-    public Cinema getCinema() {
-        return cinema;
-    }
-
-    public void setCinema(Cinema cinema) {
-        this.cinema = cinema;
-    }
-
-    public Set<Auditorium> getAuditoriums() {
-        return auditoriums;
-    }
-
-    public void setAuditoriums(Set<Auditorium> auditoriums) {
-        this.auditoriums = auditoriums;
-    }
+    /*
+     * 
+     * public Movie getMovie() { return movie; }
+     * 
+     * public void setMovie(Movie movie) { this.movie = movie; }
+     * 
+     * public Cinema getCinema() { return cinema; }
+     * 
+     * public void setCinema(Cinema cinema) { this.cinema = cinema; }
+     * 
+     * public Set<Auditorium> getAuditoriums() { return auditoriums; }
+     * 
+     * public void setAuditoriums(Set<Auditorium> auditoriums) { this.auditoriums =
+     * auditoriums; }
+     */
 }

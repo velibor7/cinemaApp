@@ -4,11 +4,12 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "USERS")
 public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column
     private String username;
@@ -17,7 +18,7 @@ public class User implements Serializable {
     private String password;
 
     @Column
-    private String name;
+    private String firstname;
 
     @Column
     private String surname;
@@ -44,7 +45,7 @@ public class User implements Serializable {
             String email, String dateOfBirth, Boolean active) {
         this.username = username;
         this.password = password;
-        this.name = name;
+        this.firstname = name;
         this.surname = surname;
         this.role = role;
         this.phoneNumber = phoneNumber;
@@ -58,7 +59,7 @@ public class User implements Serializable {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.name = name;
+        this.firstname = name;
         this.surname = surname;
         this.role = role;
         this.phoneNumber = phoneNumber;
@@ -92,11 +93,11 @@ public class User implements Serializable {
     }
 
     public String getName() {
-        return name;
+        return firstname;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.firstname = name;
     }
 
     public String getSurname() {
