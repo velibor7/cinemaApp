@@ -1,37 +1,18 @@
-package com.example.cinemaApp.models;
+package com.example.cinemaApp.dto;
 
-import java.io.Serializable;
-import java.sql.Time;
-import java.util.*;
-import javax.persistence.*;
+public class ProjectionDTO {
 
-@Entity
-public class Projection implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    // ! treba da se promeni u date
-    @Column
     private String day;
-
-    @Column
     private String time;
-
-    @Column
     private Integer price;
-
-    @OneToOne()
-    Movie movie;
+    // Movie movie;
 
     // connection with cinema
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Cinema cinema;
+    // private Cinema cinema;
 
     // list of auditoriums where this movie is projected
-    @ManyToMany(mappedBy = "projectionsList")
-    private Set<Auditorium> auditoriums = new HashSet<>();
+    // private Set<Auditorium> auditoriums = new HashSet<>();
 
     public Integer getId() {
         return id;
@@ -49,11 +30,11 @@ public class Projection implements Serializable {
         this.day = day;
     }
 
-    public String getTime() {
+    public Time getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Time time) {
         this.time = time;
     }
 
@@ -88,5 +69,4 @@ public class Projection implements Serializable {
     public void setAuditoriums(Set<Auditorium> auditoriums) {
         this.auditoriums = auditoriums;
     }
-
 }

@@ -11,21 +11,6 @@ public class CinemaDTO {
     private String email;
     private Manager manager;
 
-    /*
-     * @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade =
-     * CascadeType.ALL) private final Set<Auditorium> auditoriums = new HashSet<>();
-     * 
-     * // ! RASPORED ODRZAVANJA FILMOVA ZAJEDNO SA CENAMA ZA SVAKU PROJEKCIJU
-     * 
-     * @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade =
-     * CascadeType.ALL) private final Set<Projection> projectionsSchedule = new
-     * HashSet<>();
-     * 
-     * public Cinema(String name, String address, String phoneNumber, String email,
-     * Manager manager) { this.name = name; this.address = address; this.phoneNumber
-     * = phoneNumber; this.email = email; this.manager = manager; }
-     */
-
     public Integer getId() {
         return id;
     }
@@ -73,11 +58,4 @@ public class CinemaDTO {
     public void setManager(Manager manager) {
         this.manager = manager;
     }
-    /*
-     * 
-     * public Set<Auditorium> getAuditoriums() { return auditoriums; }
-     * 
-     * public Set<Projection> getProjectionsSchedule() { return projectionsSchedule;
-     * }
-     */
 }
