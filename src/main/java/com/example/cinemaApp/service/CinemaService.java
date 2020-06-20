@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 public interface CinemaService {
 
-    Cinema findOne(Long id);
+    Cinema findOne(Integer id);
 
     List<Cinema> findAll();
 

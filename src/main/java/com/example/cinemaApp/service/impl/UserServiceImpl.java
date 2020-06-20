@@ -14,21 +14,19 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepo;
-    /*
-     * @Autowired private UserRepository userRepo;
-     * 
-     * public User findOne(Long id) { User user = this.userRepo.getOne(id); return
-     * user; }
-     * 
-     * public List<User> findAll() { List<User> users = this.userRepo.findAll();
-     * return users; }
-     * 
-     * public User save(User user) { return this.userRepo.save(user); }
-     */
+
+    public User findOne(Integer id) {
+        User user = this.userRepo.getOne(id);
+        return user;
+    }
 
     public List<User> findAll() {
         List<User> users = this.userRepo.findAll();
         return users;
+    }
+
+    public User save(User user) {
+        return this.userRepo.save(user);
     }
 
     public User findByUsername(String username) {

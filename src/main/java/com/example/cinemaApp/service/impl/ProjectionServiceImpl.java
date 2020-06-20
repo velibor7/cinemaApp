@@ -15,7 +15,7 @@ public class ProjectionServiceImpl implements ProjectionService {
     @Autowired
     private ProjectionRepository projectionRepo;
 
-    public Projection findOne(Long id) {
+    public Projection findOne(Integer id) {
         Projection projection = this.projectionRepo.getOne(id);
         return projection;
     }

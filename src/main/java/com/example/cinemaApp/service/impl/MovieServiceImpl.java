@@ -15,7 +15,7 @@ public class MovieServiceImpl implements MovieService {
     @Autowired
     private MovieRepository movieRepo;
 
-    public Movie findOne(Long id) {
+    public Movie findOne(Integer id) {
         Movie movie = this.movieRepo.getOne(id);
         return movie;
     }

@@ -15,7 +15,7 @@ public class AuditoriumServiceImpl implements AuditoriumService {
     @Autowired
     private AuditoriumRepository auditoriumRepo;
 
-    public Auditorium findOne(Long id) {
+    public Auditorium findOne(Integer id) {
         Auditorium auditorium = this.auditoriumRepo.getOne(id);
         return auditorium;
     }

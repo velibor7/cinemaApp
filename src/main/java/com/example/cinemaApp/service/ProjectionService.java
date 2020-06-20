@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 public interface ProjectionService {
 
-    Projection findOne(Long id);
+    Projection findOne(Integer id);
 
     List<Projection> findAll();
 

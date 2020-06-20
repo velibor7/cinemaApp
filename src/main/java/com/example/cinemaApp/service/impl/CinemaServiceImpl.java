@@ -15,7 +15,7 @@ public class CinemaServiceImpl implements CinemaService {
     @Autowired
     private CinemaRepository cinemaRepo;
 
-    public Cinema findOne(Long id) {
+    public Cinema findOne(Integer id) {
         Cinema cinema = this.cinemaRepo.getOne(id);
         return cinema;
     }

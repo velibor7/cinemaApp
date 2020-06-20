@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface ManagerService {
 
-    Manager findOne(Long id);
+    Manager findOne(Integer id);
 
     List<Manager> findAll();
 

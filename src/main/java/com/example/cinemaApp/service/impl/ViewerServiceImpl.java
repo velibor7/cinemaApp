@@ -15,7 +15,7 @@ public class ViewerServiceImpl implements ViewerService {
     @Autowired
     private ViewerRepository viewerRepo;
 
-    public Viewer findOne(Long id) {
+    public Viewer findOne(Integer id) {
         Viewer viewer = this.viewerRepo.getOne(id);
         return viewer;
     }

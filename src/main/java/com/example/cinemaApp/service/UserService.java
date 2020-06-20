@@ -9,20 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 public interface UserService {
-    ;
-    /*
-     * @Autowired private UserRepository userRepo;
-     * 
-     * public User findOne(Long id) { User user = this.userRepo.getOne(id); return
-     * user; }
-     * 
-     * public List<User> findAll() { List<User> users = this.userRepo.findAll();
-     * return users; }
-     * 
-     * public User save(User user) { return this.userRepo.save(user); }
-     */
+
+    User findOne(Integer id);
 
     List<User> findAll();
+
+    User save(User user);
 
     User findByUsername(String username);
 }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 public interface ViewerService {
 
-    Viewer findOne(Long id);
+    Viewer findOne(Integer id);
 
     List<Viewer> findAll();
 

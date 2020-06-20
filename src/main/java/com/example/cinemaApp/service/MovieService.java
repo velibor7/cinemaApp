@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 public interface MovieService {
 
-    Movie findOne(Long id);
+    Movie findOne(Integer id);
 
     List<Movie> findAll();
 

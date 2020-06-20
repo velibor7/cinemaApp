@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 public interface AuditoriumService {
 
-    Auditorium findOne(Long id);
+    Auditorium findOne(Integer id);
 
     List<Auditorium> findAll();
 

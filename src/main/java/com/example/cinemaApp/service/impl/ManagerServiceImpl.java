@@ -15,7 +15,7 @@ public class ManagerServiceImpl implements ManagerService {
     @Autowired
     private ManagerRepository managerRepo;
 
-    public Manager findOne(Long id) {
+    public Manager findOne(Integer id) {
         Manager manager = this.managerRepo.getOne(id);
         return manager;
     }

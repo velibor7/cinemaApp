@@ -3,10 +3,12 @@ package com.example.cinemaApp.repository;
 import com.example.cinemaApp.models.Manager;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface ManagerRepository extends JpaRepository<Manager, Long> {
+@Repository
+public interface ManagerRepository extends JpaRepository<Manager, Integer> {
 
     // List<Manager> findAllByPositionOrderByFirstName(String position);
 
