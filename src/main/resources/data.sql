@@ -1,27 +1,16 @@
 -- USER
-
-
---DROP TABLE if exists USERS
--- cascade;
-
--- DROP TABLE if exists USER cascade;
--- ALTER TABLE USER DROP COLUMN DTYPE;
--- CREATE TABLE [USER];
-
-INSERT INTO USERS
-    (username, password, firstname, surname, phone_number, email, date_of_birth, role, active)
+INSERT INTO USER
+    (user_type, active, date_of_birth, email, firstname, password, phone_number, position, surname, username)
 VALUES
-    ('pero', 'pero123', 'Petar', 'Petrovic', '+381 63 963 854', 'pero@test.com', '01.01.1999', 'admin', TRUE);
-INSERT INTO USERS
-    (username, password, firstname, surname, phone_number, email, date_of_birth, role, active)
+    (1, TRUE, '01.01.1990', 'pero@test.com', 'Pero', 'pero123', '+381 64 5432 332', 'viewer', 'Peric', 'pero');
+INSERT INTO USER
+    (user_type, active, date_of_birth, email, firstname, password, phone_number, position, surname, username)
 VALUES
-    ('mare', 'mare123', 'Marko', 'Markovic', '+381 63 234 612', 'mare@test.com', '01.01.1999', 'manager', TRUE);
-INSERT INTO USERS
-    (username, password, firstname, surname, phone_number, email, date_of_birth, ROLE, active)
+    (2, TRUE, '01.01.1990', 'menadjer1@test.com', 'Menadjer', 'menadjer123', '+381 64 5432 332', 'manager', 'Menadjerovic', 'menadjer1');
+INSERT INTO USER
+    (user_type, active, date_of_birth, email, firstname, password, phone_number, position, surname, username)
 VALUES
-    ('djoka', 'djoka123', 'Djordje', 'Djurendic', '+381 63 333 183', 'djoka@test.com', '01.01.1999', 'viewer', TRUE);
-
-
+    (3, TRUE, '01.01.1990', 'admin1@test.com', 'Admin', 'admin123', '+381 64 5432 332', 'admin', 'Adminkovic', 'admin1');
 
 -- CINEMA
 

@@ -5,14 +5,16 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
+@DiscriminatorValue("1")
 public class Viewer extends User {
 
     /**
      *
      */
     // redef
-    private static final long serialVersionUID = -3370823760102065702L;
+    // private static final long serialVersionUID = -3370823760102065702L;
 
+    private static final long serialVersionUID = 1L;
     // ! da li je name povezan sa mappedBy?!??!?!?!?!?!?
     // ! treba promeniti ove names
     // watched movies

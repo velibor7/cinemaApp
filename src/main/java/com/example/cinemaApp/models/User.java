@@ -3,15 +3,23 @@ package com.example.cinemaApp.models;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import javassist.SerialVersionUID;
+
 @Entity
-@Table(name = "USERS")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.INTEGER)
 public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
+    @Column(insertable = false, updatable = false)
+    private Integer user_type;
+
+    @Column(unique = true)
     private String username;
 
     @Column
@@ -33,7 +41,7 @@ public class User implements Serializable {
     private String dateOfBirth;
 
     @Column
-    private String role;
+    private String position;
 
     @Column
     private Boolean active;
@@ -41,39 +49,35 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String username, String password, String name, String surname, String role, String phoneNumber,
-            String email, String dateOfBirth, Boolean active) {
-        this.username = username;
-        this.password = password;
-        this.firstname = name;
-        this.surname = surname;
-        this.role = role;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.dateOfBirth = dateOfBirth;
-        this.active = active;
-    }
-
-    public User(Long id, String username, String password, String name, String surname, String role, String phoneNumber,
-            String email, String dateOfBirth, Boolean active) {
+    public User(Integer id, Integer user_type, String username, String password, String firstname, String surname,
+            String phoneNumber, String email, String dateOfBirth, String position, Boolean active) {
         this.id = id;
+        this.user_type = user_type;
         this.username = username;
         this.password = password;
-        this.firstname = name;
+        this.firstname = firstname;
         this.surname = surname;
-        this.role = role;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
+        this.position = position;
         this.active = active;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getUser_type() {
+        return user_type;
+    }
+
+    public void setUser_type(Integer user_type) {
+        this.user_type = user_type;
     }
 
     public String getUsername() {
@@ -92,12 +96,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public String getName() {
+    public String getFirstname() {
         return firstname;
     }
 
-    public void setName(String name) {
-        this.firstname = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getSurname() {
@@ -106,14 +110,6 @@ public class User implements Serializable {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public String getPhoneNumber() {
@@ -132,16 +128,24 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getdateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setdateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
     public Boolean getActive() {
-        return this.active;
+        return active;
     }
 
     public void setActive(Boolean active) {
