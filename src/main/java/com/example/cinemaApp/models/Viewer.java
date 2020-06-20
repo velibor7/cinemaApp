@@ -10,6 +10,7 @@ public class Viewer extends User {
     /**
      *
      */
+    // redef
     private static final long serialVersionUID = -3370823760102065702L;
 
     // ! da li je name povezan sa mappedBy?!??!?!?!?!?!?

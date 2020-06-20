@@ -1,17 +1,17 @@
 -- USER
 
 
--- DROP TABLE USER;
-/*
-DROP TABLE if exists USER cascade;
--- ALTER TABLE USER DROP COLUMN DTYPE;
+--DROP TABLE if exists USERS
+-- cascade;
 
-INSERT INTO
-USERS
+-- DROP TABLE if exists USER cascade;
+-- ALTER TABLE USER DROP COLUMN DTYPE;
+-- CREATE TABLE [USER];
+
+INSERT INTO USERS
     (username, password, firstname, surname, phone_number, email, date_of_birth, role, active)
 VALUES
     ('pero', 'pero123', 'Petar', 'Petrovic', '+381 63 963 854', 'pero@test.com', '01.01.1999', 'admin', TRUE);
-
 INSERT INTO USERS
     (username, password, firstname, surname, phone_number, email, date_of_birth, role, active)
 VALUES
@@ -21,7 +21,7 @@ INSERT INTO USERS
 VALUES
     ('djoka', 'djoka123', 'Djordje', 'Djurendic', '+381 63 333 183', 'djoka@test.com', '01.01.1999', 'viewer', TRUE);
 
-*/
+
 
 -- CINEMA
 

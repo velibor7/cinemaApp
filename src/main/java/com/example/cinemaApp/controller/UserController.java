@@ -41,6 +41,16 @@ public class UserController {
         return new ResponseEntity<>(userDTO, HttpStatus.ACCEPTED);
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.POST, consumes = "application/json")
+    public ResponseEntity<UserDTO> login(@RequestBody UserDTO userDTO) {
+        // System.out.print("hit");
+        // return new ResponseEntity<>();
+        // System.out.println(userDTO);
+
+        // ! acc - created
+        return new ResponseEntity<>(userDTO, HttpStatus.ACCEPTED);
+    }
+
     // ? jaoo
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ResponseEntity<List<User>> getUser() {
