@@ -10,20 +10,9 @@ import org.springframework.stereotype.Service;
 
 public interface AuditoriumService {
 
-    // @Autowired
-    // private AuditoriumRepository auditoriumRepo;
+    Auditorium findOne(Long id);
 
-    Auditorium findOne(Long id) {
-        // Auditorium auditorium = this.auditoriumRepo.getOne(id);
-        // return auditorium;
-    }
+    List<Auditorium> findAll();
 
-    List<Auditorium> findAll() {
-        // List<Auditorium> auditoriums = this.auditoriumRepo.findAll();
-        // return auditoriums;
-    }
-
-    Auditorium save(Auditorium auditorium) {
-        // return this.auditoriumRepo.save(auditorium);
-    }
+    Auditorium save(Auditorium auditorium);
 }

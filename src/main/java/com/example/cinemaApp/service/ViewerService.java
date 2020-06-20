@@ -8,23 +8,11 @@ import com.example.cinemaApp.repository.ViewerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class ViewerService {
+public interface ViewerService {
 
-    @Autowired
-    private ViewerRepository viewerRepo;
+    Viewer findOne(Long id);
 
-    public Viewer findOne(Long id) {
-        Viewer viewer = this.viewerRepo.getOne(id);
-        return viewer;
-    }
+    List<Viewer> findAll();
 
-    public List<Viewer> findAll() {
-        List<Viewer> viewers = this.viewerRepo.findAll();
-        return viewers;
-    }
-
-    public Viewer save(Viewer viewer) {
-        return this.viewerRepo.save(viewer);
-    }
+    Viewer save(Viewer viewer);
 }

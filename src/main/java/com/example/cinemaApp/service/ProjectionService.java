@@ -8,23 +8,11 @@ import com.example.cinemaApp.repository.ProjectionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class ProjectionService {
+public interface ProjectionService {
 
-    @Autowired
-    private ProjectionRepository projectionRepo;
+    Projection findOne(Long id);
 
-    public Projection findOne(Long id) {
-        Projection projection = this.projectionRepo.getOne(id);
-        return projection;
-    }
+    List<Projection> findAll();
 
-    public List<Projection> findAll() {
-        List<Projection> projections = this.projectionRepo.findAll();
-        return projections;
-    }
-
-    public Projection save(Projection projection) {
-        return this.projectionRepo.save(projection);
-    }
+    Projection save(Projection projection);
 }

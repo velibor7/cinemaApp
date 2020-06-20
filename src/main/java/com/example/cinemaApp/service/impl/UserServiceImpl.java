@@ -1,15 +1,19 @@
-package com.example.cinemaApp.service;
+package com.example.cinemaApp.service.impl;
 
 import java.util.List;
 
 import com.example.cinemaApp.models.User;
 import com.example.cinemaApp.repository.UserRepository;
+import com.example.cinemaApp.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-public interface UserService {
-    ;
+@Service
+public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserRepository userRepo;
     /*
      * @Autowired private UserRepository userRepo;
      * 
@@ -22,7 +26,12 @@ public interface UserService {
      * public User save(User user) { return this.userRepo.save(user); }
      */
 
-    List<User> findAll();
+    public List<User> findAll() {
+        List<User> users = this.userRepo.findAll();
+        return users;
+    }
 
-    User findByUsername(String username);
+    public User findByUsername(String username) {
+        return userRepo.findByUsername(username);
+    }
 }
