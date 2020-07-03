@@ -7,6 +7,7 @@ import { ReservationsComponent } from "./reservations/reservations.component";
 import { MeComponent } from "./me/me.component";
 import { AdminComponent } from "./admin/admin.component";
 import { AddcinemaComponent } from "./admin/addcinema/addcinema.component";
+import { ManagerComponent } from "./manager/manager.component";
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: "me", component: MeComponent },
   { path: "admin", component: AdminComponent },
   { path: "admin/addcinema", component: AddcinemaComponent },
+  { path: "manager", component: ManagerComponent },
 ];
 
 @NgModule({

@@ -18,6 +18,7 @@ import { AuthInterceptor } from "./auth/auth-interceptor";
 import { MeComponent } from './me/me.component';
 import { AdminComponent } from './admin/admin.component';
 import { AddcinemaComponent } from './admin/addcinema/addcinema.component';
+import { ManagerComponent } from './manager/manager.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AddcinemaComponent } from './admin/addcinema/addcinema.component';
     MeComponent,
     AdminComponent,
     AddcinemaComponent,
+    ManagerComponent,
   ],
   imports: [
     BrowserModule,
