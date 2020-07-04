@@ -1,14 +1,14 @@
 <div class="controls">
-    <button routerLink="cinemalist">CINEMA LIST</button>
-    <button routerLink="addcinema">ADD NEW CINEMA</button>
-    <button routerLink="addmanager">ADD NEW MANAGER</button>
+    <button routerLink="cinemalist" class="btn">CINEMA LIST</button>
+    <button routerLink="addcinema" class="btn">ADD NEW CINEMA</button>
+    <button routerLink="addmanager" class="btn">ADD NEW MANAGER</button>
 </div>
 <div class="mng-container" *ngFor="let manager of managers; let i = index">
     <span>
         {{ manager.firstname }} {{ manager.surname}}
     </span>
     <span>
-        <button (click)="onEdit()">EDIT</button>
-        <button (click)="onRemove()">REMOVE</button>
+        <button (click)="onEdit()" class="btn edit">EDIT</button>
+        <button (click)="onRemove()" class="btn">REMOVE</button>
     </span>
 </div>
