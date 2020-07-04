@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping(value = "/api/cinema")
 @CrossOrigin(origins = "http://localhost:4200")
 public class CinemaController {
@@ -34,10 +35,19 @@ public class CinemaController {
         // ! acc - created return new ResponseEntity<>(, HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Cinema>> getCinemas() {
+        // ! podsetnik: koriscen je JsonIgnore u modelu, zato sto dolazi do beskonacne
+        // rekurzije
         List<Cinema> cinemas;
         cinemas = cinemaService.findAll();
+
+        // List<CinemaDTO> cinemaDTOS = new ArrayList<>();
+
+        // for (Cinema cinema : cinemas) {
+        // CinemaDTO cinemaDTO = new CinemaDTO(cinema.getId(), cinema)
+
+        // }
 
         return new ResponseEntity<>(cinemas, HttpStatus.OK);
     }

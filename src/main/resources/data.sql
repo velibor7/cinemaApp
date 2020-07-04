@@ -22,6 +22,10 @@ INSERT INTO CINEMA
     (name, address, phone_number, email, manager_id)
 VALUES
     ('Cinestar', 'BIG', '+381 69 876 5432', 'cinestar@test.com', 2);
+INSERT INTO CINEMA
+    (name, address, phone_number, email, manager_id)
+VALUES
+    ('Neki treci bioskop', 'Djordja Petrovica 5', '+381 61 571 1322', 'nekitreci@test.com', 2);
 
 
 -- AUDITORIUM
