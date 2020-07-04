@@ -29,9 +29,12 @@ public class Projection implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Cinema cinema;
 
+    // @ManyToOne()
+    // private Auditorium auditorium;
+
     // list of auditoriums where this movie is projected
-    @ManyToMany(mappedBy = "projectionsList")
-    private Set<Auditorium> auditoriums = new HashSet<>();
+    // @ManyToMany(mappedBy = "projectionsList")
+    // private Set<Auditorium> auditoriums = new HashSet<>();
 
     public Integer getId() {
         return id;
@@ -81,12 +84,12 @@ public class Projection implements Serializable {
         this.cinema = cinema;
     }
 
-    public Set<Auditorium> getAuditoriums() {
-        return auditoriums;
-    }
+    // public Set<Auditorium> getAuditoriums() {
+    // return auditoriums;
+    // }
 
-    public void setAuditoriums(Set<Auditorium> auditoriums) {
-        this.auditoriums = auditoriums;
-    }
+    // public void setAuditoriums(Set<Auditorium> auditoriums) {
+    // this.auditoriums = auditoriums;
+    // }
 
 }

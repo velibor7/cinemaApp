@@ -1,6 +1,9 @@
 package com.example.cinemaApp.models;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 import javassist.SerialVersionUID;

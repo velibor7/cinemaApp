@@ -1,6 +1,7 @@
 package com.example.cinemaApp.models;
 
 import java.io.Serializable;
+import java.sql.Array;
 import java.util.*;
 import javax.persistence.*;
 
@@ -32,8 +33,9 @@ public class Auditorium implements Serializable {
     // * list of projections in this auditorium
     @ManyToMany
     @JoinTable(name = "projections", joinColumns = @JoinColumn(name = "auditorium_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "projection_id", referencedColumnName = "id"))
-    private Set<Projection> projectionsList = new HashSet<>();
+    private List<Projection> projectionsList = new ArrayList<>();
 
+    // * getters setters, etc
     public Integer getId() {
         return id;
     }
@@ -66,11 +68,11 @@ public class Auditorium implements Serializable {
         this.cinema = cinema;
     }
 
-    public Set<Projection> getProjectionsList() {
+    public List<Projection> getProjectionsList() {
         return projectionsList;
     }
 
-    public void setProjectionsList(Set<Projection> projectionsList) {
+    public void setProjectionsList(List<Projection> projectionsList) {
         this.projectionsList = projectionsList;
     }
 

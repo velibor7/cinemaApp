@@ -73,12 +73,11 @@ VALUES
     ('07.05.2020.', '20:00', 300, 1, 2);
 
 
-
-
     -- ! ovde nisam siguran za date
 
-
 --! PROJECTIONS (THIS IS CONNECTION )
-INSERT INTO PROJECTIONS
-    (auditorium_id, projection_id)
-VALUES(2, 1);
+INSERT INTO PROJECTIONS (auditorium_id, projection_id) VALUES(2, 1);
+
+INSERT INTO MOVIES_WATCHED (viewer_id, movie_id) VALUES (1, 1);
+
+INSERT INTO MOVIES_RESERVED (viewer_id, movie_id) VALUES (1,2);

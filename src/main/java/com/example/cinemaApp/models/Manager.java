@@ -11,6 +11,7 @@ public class Manager extends User {
     @OneToMany(mappedBy = "manager", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Cinema> cinemas = new ArrayList<Cinema>();
 
+    // ! methods
     public void addCinema(Cinema cinema) {
         this.cinemas.add(cinema);
         // ? sta mi jos treba ovde

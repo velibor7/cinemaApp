@@ -31,11 +31,13 @@ public class Movie implements Serializable {
     @Column
     private Long grade;
 
+    // ? lista ljudi koji su gledali film
     @ManyToMany(mappedBy = "watchedMovies")
-    private Set<Viewer> peopleWatched = new HashSet<>();
+    private List<Viewer> peopleWatched = new ArrayList<>();
 
+    // ? lista ljudi koji su rezervisali film
     @ManyToMany(mappedBy = "reservedMovies")
-    private Set<Viewer> peopleReserved = new HashSet<>();
+    private List<Viewer> peopleReserved = new ArrayList<>();
 
     // ! METHODS
 
