@@ -24,13 +24,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // @GetMapping("/")
-    // public String welcome() {
-    // return "home.html";
-    // }
-
-    // ! AUTH
-
     @RequestMapping(value = "/register", method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity<UserDTO> add(@RequestBody UserDTO userDTO) {
         // System.out.print("hit");
@@ -53,7 +46,7 @@ public class UserController {
 
     // ? jaoo
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ResponseEntity<List<User>> getUser() {
+    public ResponseEntity<List<User>> getUsers() {
         List<User> users;
         users = userService.findAll();
 

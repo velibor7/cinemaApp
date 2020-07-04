@@ -15,4 +15,6 @@ public interface CinemaRepository extends JpaRepository<Cinema, Integer> {
     // List<Cinema> findByFirstNameOrLastName(String firstName, String lastName);
 
     // List<Cinema> findByFirstNameIgnoreCase(String firstName);
+
+    // List<Cinema> findAll();
 }

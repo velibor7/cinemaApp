@@ -15,15 +15,13 @@ VALUES
 -- CINEMA
 
 INSERT INTO CINEMA
-    (name, address, phone_number, email
-    )
+    (name, address, phone_number, email, manager_id)
 VALUES
-    ('Cineplexx', 'Trg Dositeja Obradovića 6', '+381 60 123 4567', 'cineplexx@test.com');
+    ('Cineplexx', 'Trg Dositeja Obradovića 6', '+381 60 123 4567', 'cineplexx@test.com', 2);
 INSERT INTO CINEMA
-    (name, address, phone_number, email
-    )
+    (name, address, phone_number, email, manager_id)
 VALUES
-    ('Cinestar', 'BIG', '+381 69 876 5432', 'cinestar@test.com');
+    ('Cinestar', 'BIG', '+381 69 876 5432', 'cinestar@test.com', 2);
 
 
 -- AUDITORIUM
@@ -47,8 +45,6 @@ VALUES
 
 
 -- MOVIE
-
-
 INSERT INTO MOVIE
     (name, description, genre, duration, grade)
 VALUES
@@ -72,12 +68,17 @@ VALUES
 
 --! PROJECTION (single)
 INSERT INTO PROJECTION
-    (day, time, price, movie_id)
+    (day, time, price, movie_id, cinema_id)
 VALUES
-    (TO_DATE('07.05.2020.','DD.MM.YYY.'), '20:00', 300, 1);
+    ('07.05.2020.', '20:00', 300, 1, 2);
+
+
+
+
+    -- ! ovde nisam siguran za date
 
 
 --! PROJECTIONS (THIS IS CONNECTION )
 INSERT INTO PROJECTIONS
     (auditorium_id, projection_id)
-VALUES(1, 1);
+VALUES(2, 1);

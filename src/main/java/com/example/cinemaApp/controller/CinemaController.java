@@ -1,6 +1,9 @@
 package com.example.cinemaApp.controller;
 
+import java.util.List;
+
 import com.example.cinemaApp.dto.CinemaDTO;
+import com.example.cinemaApp.models.Cinema;
 import com.example.cinemaApp.service.CinemaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/api/cinema")
+@RequestMapping(value = "/api/cinema")
 @CrossOrigin(origins = "http://localhost:4200")
 public class CinemaController {
-    // @Autowired
-    // private CinemaService cinemaService;
+    @Autowired
+    private CinemaService cinemaService;
 
     // @GetMapping("/")
     // public String welcome() {
@@ -29,6 +32,14 @@ public class CinemaController {
     public ResponseEntity add(@RequestBody CinemaDTO cinemaDTO) {
         return new ResponseEntity<>(cinemaDTO, HttpStatus.CREATED);
         // ! acc - created return new ResponseEntity<>(, HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ResponseEntity<List<Cinema>> getCinemas() {
+        List<Cinema> cinemas;
+        cinemas = cinemaService.findAll();
+
+        return new ResponseEntity<>(cinemas, HttpStatus.OK);
     }
 
 }

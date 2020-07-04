@@ -29,8 +29,18 @@ public class Cinema implements Serializable {
     private String email;
 
     // ! eager - sve odma, lazy tek kad pozovemo neku metdou
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    // @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Manager manager;
+
+    // public Cinema(String name, String address, String phoneNumber, String email,
+    // Manager manager) {
+    // this.name = name;
+    // this.address = address;
+    // this.phoneNumber = phoneNumber;
+    // this.email = email;
+    // this.manager = manager;
+    // }
 
     // * lista sala
     @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -40,11 +50,4 @@ public class Cinema implements Serializable {
     @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private final Set<Projection> projectionsSchedule = new HashSet<>();
 
-    public Cinema(String name, String address, String phoneNumber, String email, Manager manager) {
-        this.name = name;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.manager = manager;
-    }
 }
