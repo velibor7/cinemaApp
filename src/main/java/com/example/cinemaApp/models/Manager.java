@@ -1,6 +1,10 @@
 package com.example.cinemaApp.models;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.*;
 
 @Entity
@@ -9,6 +13,7 @@ public class Manager extends User {
     private static final long serialVersionUID = 1L;
 
     @OneToMany(mappedBy = "manager", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Cinema> cinemas = new ArrayList<Cinema>();
 
     // ! methods

@@ -5,6 +5,10 @@ import java.sql.Array;
 import java.util.*;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Auditorium implements Serializable {
 
@@ -21,6 +25,7 @@ public class Auditorium implements Serializable {
 
     // ? da li je potrebno da bude dvosmerna veza sale i bioskopa?
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonBackReference
     Cinema cinema;
 
     // !wrong sadrzi film i broj rezervisanih karata za datu projekciju
@@ -33,6 +38,7 @@ public class Auditorium implements Serializable {
     // * list of projections in this auditorium
     @ManyToMany
     @JoinTable(name = "projections", joinColumns = @JoinColumn(name = "auditorium_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "projection_id", referencedColumnName = "id"))
+    @JsonManagedReference
     private List<Projection> projectionsList = new ArrayList<>();
 
     // * getters setters, etc

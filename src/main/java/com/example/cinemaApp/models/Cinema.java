@@ -38,12 +38,13 @@ public class Cinema implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "manager_id")
     // @JsonView(View.DetailView.class)
-    @JsonIgnore
+    // @JsonIgnore
+    @JsonManagedReference
     private Manager manager;
 
     // * lista sala
     @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonIgnore
+    @JsonManagedReference
     private final Set<Auditorium> auditoriums = new HashSet<>();
 
     // ! RASPORED ODRZAVANJA FILMOVA ZAJEDNO SA CENAMA ZA SVAKU PROJEKCIJU

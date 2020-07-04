@@ -5,6 +5,8 @@ import java.sql.Time;
 import java.util.*;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Projection implements Serializable {
 
@@ -27,6 +29,7 @@ public class Projection implements Serializable {
 
     // connection with cinema
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonBackReference
     private Cinema cinema;
 
     // @ManyToOne()
