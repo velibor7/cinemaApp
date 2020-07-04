@@ -1,0 +1,25 @@
+.mng-container {
+  width: 80%;
+  border: 1px solid black;
+  display: flex;
+  align-self: center;
+  margin: 1em auto;
+  justify-content: space-between;
+  padding: 1em;
+  button {
+    cursor: pointer;
+    margin: auto 0.5em;
+  }
+}
+
+.controls {
+  display: flex;
+  width: 80%;
+  border: 1px solid black;
+  margin: 1em auto;
+  justify-content: space-between;
+  button {
+    margin: 0.5em;
+    cursor: pointer;
+  }
+}

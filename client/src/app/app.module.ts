@@ -19,6 +19,7 @@ import { MeComponent } from './me/me.component';
 import { AdminComponent } from './admin/admin.component';
 import { AddcinemaComponent } from './admin/addcinema/addcinema.component';
 import { ManagerComponent } from './manager/manager.component';
+import { AddmanagerComponent } from './admin/addmanager/addmanager.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ManagerComponent } from './manager/manager.component';
     AdminComponent,
     AddcinemaComponent,
     ManagerComponent,
+    AddmanagerComponent,
   ],
   imports: [
     BrowserModule,

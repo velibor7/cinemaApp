@@ -1,0 +1,56 @@
+<div class="manager-card">
+    <div class="form">
+      <form
+        class="login-form"
+        (submit)="onAddManager(managerForm)"
+        #managerForm="ngForm"
+      >
+        <input
+          type="text"
+          placeholder="first name"
+          name="firstname"
+          ngModel
+          #firstnameInput="ngModel"
+        />
+
+        <input
+          type="text"
+          placeholder="surname"
+          name="surnamename"
+          ngModel
+          #surnameInput="ngModel"
+        />
+        <input
+          type="text"
+          placeholder="username"
+          name="username"
+          ngModel
+          #usernameInput="ngModel"
+        />
+        <input
+          type="text"
+          placeholder="+381 60 000 0000"
+          name="phonenumber"
+          ngModel
+          #phoneNumberInput="ngModel"
+        />
+        <input
+          type="email"
+          placeholder="email"
+          name="email"
+          ngModel
+          #emailInput="ngModel"
+        />
+        <input
+          type="password"
+          placeholder="password"
+          name="password"
+          autocomplete="none"
+          ngModel
+          #passwordInput="ngModel"
+        />
+        <button type="submit">ADD</button>
+      </form>
+    </div>
+  </div>
+  

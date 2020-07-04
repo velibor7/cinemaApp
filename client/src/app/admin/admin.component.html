@@ -1,15 +1,14 @@
-<p>admin works!</p>
-<div>ovde ce biti opcije koje moze da izvrsava samo admin</div>
-<div>zastita authguard</div>
-
-<div>
-    <ul>
-        <li>dodavanje izmena i brisanje bioskopa</li>
-        <li>registracija novih managera</li>
-        <li>uklanjanje managera</li>
-    </ul>
+<div class="controls">
+    <button routerLink="cinemalist">CINEMA LIST</button>
+    <button routerLink="addcinema">ADD NEW CINEMA</button>
+    <button routerLink="addmanager">ADD NEW MANAGER</button>
 </div>
-
-<!-- ! izmeni ovo-->
-<a routerLink='addcinema'>Add cinema</a>
-<!-- <a routerLink=''></a> -->
+<div class="mng-container" *ngFor="let manager of managers; let i = index">
+    <span>
+        {{ manager.firstname }} {{ manager.surname}}
+    </span>
+    <span>
+        <button (click)="onEdit()">EDIT</button>
+        <button (click)="onRemove()">REMOVE</button>
+    </span>
+</div>
