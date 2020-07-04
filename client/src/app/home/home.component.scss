@@ -7,6 +7,10 @@
     margin: 1em;
     height: 80vh;
     padding: 1em;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px gray;
+    // box-shadow: 8px 6px -6px black;
+    // -webkit-box-shadow: 8px 6px -6px black;
   }
   app-movie-list {
     display: flex;
@@ -18,4 +22,18 @@
   app-movie-detail {
     // ...
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 15px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(45deg, #880034, #df0043);
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0 3px 13px 1px;
 }

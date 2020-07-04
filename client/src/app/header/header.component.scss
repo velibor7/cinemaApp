@@ -21,6 +21,7 @@ $primary: #a00000;
     width: 3em;
     height: auto;
     z-index: 300; //? nez sto
+    outline: none;
     // font-family: "Tangerine", sans-serif;
     // font-size: 2em;
     // align-items: center;
@@ -40,27 +41,40 @@ $primary: #a00000;
       li {
         a {
           text-decoration: none;
+          color: black;
         }
         padding: 0.3em;
       }
     }
   }
 
+  .authStuff {
+    display: flex;
+    justify-content: center;
+  }
   .button {
     cursor: pointer;
     font-family: "Monserrat", sans-serif;
     display: inline-flex;
     transition-duration: 0.3s;
-    height: 2em;
+    // height: 2em;
     color: #000;
     background-color: #fff;
     border: 0px solid white;
     border-radius: 3px;
-    padding-bottom: 1em 1em 1em 1em;
+    // padding-bottom: 1em 1em 1em 1em;
+    padding: 0.5em;
     margin: 0.5em;
     &:hover {
       background-color: $primary;
       color: #fff;
     }
   }
+}
+
+.me {
+  width: 2.3em;
+  margin-left: 0.3em;
+  margin-right: 0.3em;
+  // width: auto;
 }
