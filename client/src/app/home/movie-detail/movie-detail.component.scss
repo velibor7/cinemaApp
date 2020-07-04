@@ -9,17 +9,25 @@ img {
 .button {
   cursor: pointer;
   font-family: "Monserrat", sans-serif;
-  display: inline-flex;
+  // display: inline-flex;
   transition-duration: 0.3s;
   height: 2em;
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
   border-radius: 3px;
-  padding-bottom: 1em 1em 1em 1em;
+  // padding: 1em;
   margin: 0.5em;
   &:hover {
     background-color: $primary;
     color: #fff;
   }
+}
+
+.popover,
+.left,
+.popover-left,
+.bs-popover-left {
+  background-color: gray;
+  border: 1px solid black;
 }

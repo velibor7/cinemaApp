@@ -15,11 +15,13 @@ import { MovieStartComponent } from "./home/movie-start/movie-start.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "./auth/auth-interceptor";
-import { MeComponent } from './me/me.component';
-import { AdminComponent } from './admin/admin.component';
-import { AddcinemaComponent } from './admin/addcinema/addcinema.component';
-import { ManagerComponent } from './manager/manager.component';
-import { AddmanagerComponent } from './admin/addmanager/addmanager.component';
+import { MeComponent } from "./me/me.component";
+import { AdminComponent } from "./admin/admin.component";
+import { AddcinemaComponent } from "./admin/addcinema/addcinema.component";
+import { ManagerComponent } from "./manager/manager.component";
+import { AddmanagerComponent } from "./admin/addmanager/addmanager.component";
+
+import { ConfirmationPopoverModule } from "angular-confirmation-popover";
 
 @NgModule({
   declarations: [
@@ -44,6 +46,9 @@ import { AddmanagerComponent } from './admin/addmanager/addmanager.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: "danger",
+    }),
   ],
   providers: [
     {
