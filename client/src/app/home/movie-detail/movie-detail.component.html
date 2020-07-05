@@ -1,30 +1,20 @@
-<h2>Movie Title</h2>
+<h2>{{ projection.movie.name }}</h2>
 
 <div>
-  Movie description .... <br />
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-  nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-  eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-  in culpa qui officia deserunt mollit anim id est laborum.
+  {{ projection.movie.description}}
 </div>
 <!-- <img src="../../../assets/img/exam.jpeg" alt=""> -->
 <p>Utorak, 21:00</p>
-<p>Sala: 1A</p>
-<p>Cena: 300RSD</p>
+<p>Genre: {{ projection.movie.genre }}</p>
+<p>Duration: {{ projection.movie.duration }}</p>
+<p>Auditorium: {{ projection.auditorium.label }}</p>
+<p>Price: {{ projection.price }}RSD</p>
 
 <div></div>
 
 <button
   class="button"
   (click)="onReserve()"
-  mwlConfirmationPopover
-  [popoverTitle]="popoverTitle"
-  [popoverMessage]="popoverMessage"
-  placement="left"
-  (confirm)="confirmClicked = true"
-  (cancel)="cancelClicked = true"
 >
-  REZERVISI
+  RESERVE
 </button>

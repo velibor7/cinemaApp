@@ -15,8 +15,14 @@ export class HomeService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  getProjection(id: string) {
-    return this.http.get<{}>("http://localhost:8080/api/projection/" + id);
+  getProjection(id: number) {
+    // return this.http.get<{}>("http://localhost:8080/api/projection/" + id);
+    // return this.projections[id];
+    for (let projection of this.projections) {
+      if (projection.id == id) {
+        return projection;
+      }
+    }
   }
 
   getProjections() {

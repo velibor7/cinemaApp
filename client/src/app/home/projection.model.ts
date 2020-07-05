@@ -3,6 +3,6 @@ export class Projection {
   day: string;
   time: string;
   price: number;
-  auditorium: string;
+  auditorium: any;
   movie: any;
 }

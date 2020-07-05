@@ -9,6 +9,8 @@ import { AdminComponent } from "./admin/admin.component";
 import { AddcinemaComponent } from "./admin/addcinema/addcinema.component";
 import { ManagerComponent } from "./manager/manager.component";
 import { AddmanagerComponent } from "./admin/addmanager/addmanager.component";
+import { MovieDetailComponent } from "./home/movie-detail/movie-detail.component";
+import { MovieStartComponent } from "./home/movie-start/movie-start.component";
 
 const routes: Routes = [
   {
@@ -18,6 +20,10 @@ const routes: Routes = [
     // { path: "", component: MovieStartComponent },
     // { path: ":id", component: MovieDetailComponent },
     // ],
+    children: [
+      { path: "", component: MovieStartComponent },
+      { path: ":id", component: MovieDetailComponent },
+    ],
   },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
