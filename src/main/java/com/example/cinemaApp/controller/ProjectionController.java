@@ -22,6 +22,8 @@ public class ProjectionController {
     @Autowired
     private ProjectionService projectionService;
 
+    // @RequestMapping()
+
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Projection>> getProjections() {
         List<Projection> projections;

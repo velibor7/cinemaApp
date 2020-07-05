@@ -6,6 +6,7 @@ import java.util.*;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Projection implements Serializable {
@@ -32,8 +33,9 @@ public class Projection implements Serializable {
     @JsonBackReference
     private Cinema cinema;
 
-    // @ManyToOne()
-    // private Auditorium auditorium;
+    @ManyToOne()
+    @JsonManagedReference
+    private Auditorium auditorium;
 
     // list of auditoriums where this movie is projected
     // @ManyToMany(mappedBy = "projectionsList")

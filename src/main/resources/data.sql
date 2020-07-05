@@ -72,7 +72,7 @@ VALUES
 
 --! PROJECTION (single)
 INSERT INTO PROJECTION
-    (day, time, price, movie_id, cinema_id)
+    (day, time, price, movie_id, auditorium_id)
 VALUES
     ('07.05.2020.', '20:00', 300, 1, 2);
 
