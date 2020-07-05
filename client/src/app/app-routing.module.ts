@@ -11,6 +11,7 @@ import { ManagerComponent } from "./manager/manager.component";
 import { AddmanagerComponent } from "./admin/addmanager/addmanager.component";
 import { MovieDetailComponent } from "./home/movie-detail/movie-detail.component";
 import { MovieStartComponent } from "./home/movie-start/movie-start.component";
+import { HomeResolverService } from "./home/home-resolver.service";
 
 const routes: Routes = [
   {
@@ -22,7 +23,11 @@ const routes: Routes = [
     // ],
     children: [
       { path: "", component: MovieStartComponent },
-      { path: ":id", component: MovieDetailComponent },
+      {
+        path: ":id",
+        component: MovieDetailComponent,
+        resolve: [HomeResolverService],
+      },
     ],
   },
   { path: "login", component: LoginComponent },
