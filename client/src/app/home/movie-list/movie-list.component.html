@@ -1,61 +1,6 @@
 <!-- ovde ide ngFor -->
-<div class="item">
-  <h3>Projection1</h3>
-  <p>Utorak, 21:00</p>
-</div>
-<div class="item">
-  <h3>Projection2</h3>
-  <p>Utorak, 21:00</p>
-</div>
-<div class="item">
-  <h3>Projection3</h3>
-  <p>Utorak, 21:00</p>
-</div>
-<div class="item">
-  <h3>Projection4</h3>
-  <p>Utorak, 21:00</p>
-</div>
-<div class="item">
-  <h3>Projection5</h3>
-  <p>Utorak, 21:00</p>
-</div>
-<div class="item">
-  <h3>Projection5</h3>
-  <p>Utorak, 21:00</p>
-</div>
-<div class="item">
-  <h3>Projection5</h3>
-  <p>Utorak, 21:00</p>
-</div>
-<div class="item">
-  <h3>Projection5</h3>
-  <p>Utorak, 21:00</p>
-</div>
-<div class="item">
-  <h3>Projection5</h3>
-  <p>Utorak, 21:00</p>
-</div>
-<div class="item">
-  <h3>Projection5</h3>
-  <p>Utorak, 21:00</p>
-</div>
-<div class="item">
-  <h3>Projection5</h3>
-  <p>Utorak, 21:00</p>
-</div>
-<div class="item">
-  <h3>Projection5</h3>
-  <p>Utorak, 21:00</p>
-</div>
-<div class="item">
-  <h3>Projection5</h3>
-  <p>Utorak, 21:00</p>
-</div>
-<div class="item">
-  <h3>Projection5</h3>
-  <p>Utorak, 21:00</p>
-</div>
-<div class="item">
-  <h3>Projection5</h3>
-  <p>Utorak, 21:00</p>
+
+<div class="item" *ngFor="let projection of projections; let i = index">
+  <h3>{{ projection.movie.name }}</h3>
+  <p>{{ projection.day }} at {{ projection.time }}</p>
 </div>
