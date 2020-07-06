@@ -16,6 +16,11 @@ import { HomeResolverService } from "./home/home-resolver.service";
 const routes: Routes = [
   {
     path: "",
+    redirectTo: "/home",
+    pathMatch: "full",
+  },
+  {
+    path: "home",
     component: HomeComponent,
     // children: [
     // { path: "", component: MovieStartComponent },
@@ -30,6 +35,7 @@ const routes: Routes = [
       },
     ],
   },
+
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "reservations", component: ReservationsComponent },
