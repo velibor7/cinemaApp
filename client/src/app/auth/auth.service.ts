@@ -33,7 +33,7 @@ export class AuthService {
     email: string,
     pw: string
   ) {
-    console.log(fn + " - " + email + " - " + pw);
+    // console.log(fn + " - " + email + " - " + pw);
     //!  keys u userData se zovu isto kao i na bekendu stvari
     const userData = {
       username: un,
@@ -46,7 +46,7 @@ export class AuthService {
       position: "viewer",
       // dateOfBirth: ??
     };
-    console.log(userData);
+    // console.log(userData);
 
     let headers = new Headers();
     headers.append("Content-Type", "application/json");

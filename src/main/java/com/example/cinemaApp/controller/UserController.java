@@ -24,6 +24,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    // ! ovo je za registrovanje VIEWERA
     @RequestMapping(value = "/register", method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity<UserDTO> add(@RequestBody UserDTO userDTO) {
 
