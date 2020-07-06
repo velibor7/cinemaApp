@@ -26,12 +26,18 @@ public class UserController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity<UserDTO> add(@RequestBody UserDTO userDTO) {
-        // System.out.print("hit");
-        // return new ResponseEntity<>();
-        // System.out.println(userDTO);
 
-        // ! acc - created
-        return new ResponseEntity<>(userDTO, HttpStatus.ACCEPTED);
+        User user = new User(userDTO.getUsername(), userDTO.getPassword(), userDTO.getName(), userDTO.getSurname(),
+                userDTO.getPhoneNumber(), userDTO.getEmail(), "01.01.2020.", userDTO.getPosition(),
+                userDTO.getActive());
+
+        User newUser = userService.save(user);
+
+        UserDTO newUserDTO = new UserDTO(newUser.getId(), newUser.getUsername(), newUser.getPassword(),
+                newUser.getFirstname(), newUser.getSurname(), newUser.getPhoneNumber(), newUser.getEmail(),
+                "01.01.2020.", newUser.getPosition(), newUser.getActive());
+
+        return new ResponseEntity<>(newUserDTO, HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST, consumes = "application/json")
@@ -44,7 +50,12 @@ public class UserController {
         return new ResponseEntity<>(userDTO, HttpStatus.ACCEPTED);
     }
 
-    // ? jaoo
+    // @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    // public ResponseEntity<User> getUser() {
+
+    // }
+
+    // ? tehnicki ova metoda mi ni ne treba
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ResponseEntity<List<User>> getUsers() {
         List<User> users;

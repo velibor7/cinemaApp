@@ -2,7 +2,7 @@ package com.example.cinemaApp.dto;
 
 public class UserDTO {
 
-    private Long id;
+    private Integer id;
     private String username;
     private String password;
     private String name;
@@ -10,14 +10,14 @@ public class UserDTO {
     private String phoneNumber;
     private String email;
     private String dateOfBirth;
-    private String role;
+    private String position;
     private Boolean active;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,12 +53,12 @@ public class UserDTO {
         this.surname = surname;
     }
 
-    public String getRole() {
-        return role;
+    public String getPosition() {
+        return position;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public String getPhoneNumber() {
@@ -90,6 +90,20 @@ public class UserDTO {
     }
 
     public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public UserDTO(Integer id, String username, String password, String name, String surname, String phoneNumber,
+            String email, String dateOfBirth, String position, Boolean active) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.position = position;
         this.active = active;
     }
 
