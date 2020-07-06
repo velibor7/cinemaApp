@@ -17,7 +17,10 @@ export class RegisterComponent implements OnInit {
     }
 
     this.authService.createUser(
-      form.value.fullname,
+      form.value.username,
+      form.value.firstname,
+      form.value.lastname,
+      form.value.phone,
       form.value.email,
       form.value.password
     );

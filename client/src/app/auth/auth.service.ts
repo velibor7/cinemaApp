@@ -25,13 +25,28 @@ export class AuthService {
       });
   }
 
-  createUser(fn: string, email: string, pw: string) {
+  createUser(
+    un: string,
+    fn: string,
+    ln: string,
+    pn: string,
+    email: string,
+    pw: string
+  ) {
     console.log(fn + " - " + email + " - " + pw);
+    //!  keys u userData se zovu isto kao i na bekendu stvari
     const userData = {
-      fullname: fn,
+      username: un,
+      name: fn,
+      surname: ln,
+      phoneNumber: pn,
       email: email,
       password: pw,
+      active: true,
+      position: "viewer",
+      // dateOfBirth: ??
     };
+    console.log(userData);
 
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
