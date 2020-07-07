@@ -107,4 +107,7 @@ public class UserDTO {
         this.active = active;
     }
 
+    public UserDTO() {
+    }
+
 }
