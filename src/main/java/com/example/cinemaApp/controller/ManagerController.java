@@ -26,10 +26,6 @@ public class ManagerController {
 
     @Autowired
     private UserService userService;
-    // @GetMapping("/")
-    // public String welcome() {
-    // return "home.html";
-    // }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ResponseEntity<List<User>> getManagers() {
