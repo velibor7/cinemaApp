@@ -32,4 +32,8 @@ public class UserServiceImpl implements UserService {
     public User findByUsername(String username) {
         return userRepo.findByUsername(username);
     }
+
+    public List<User> findByPosition(String position) {
+        return userRepo.findByPosition(position);
+    }
 }

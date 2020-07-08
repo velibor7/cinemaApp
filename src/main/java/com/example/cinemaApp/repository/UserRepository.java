@@ -11,21 +11,11 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     // List<User> findAllByPosition
     // List<User> findAllByPositionOrderByFirstName(String position);
 
-    /*
-     * Traži sve zaposlene po imenu ili prezimenu.
-     */
     List<User> findByFirstnameOrSurname(String firstName, String lastName);
 
-    /*
-     * Traži sve zaposlene po imenu, ignorišu se mala i velika slova.
-     */
+    // List<User> findByFirstnameIgnoreCase(String firstName);
 
-    List<User> findByFirstnameIgnoreCase(String firstName);
-
-    /*
-     * Traži sve zaposlene po nazivu departmana.
-     */
-    // List<User> findByDepartmentName(String departmentName);
+    List<User> findByPosition(String position);
 
     User findByUsername(String username);
 }

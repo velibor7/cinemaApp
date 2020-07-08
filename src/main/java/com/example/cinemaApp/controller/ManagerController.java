@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.example.cinemaApp.dto.ManagerDTO;
 import com.example.cinemaApp.models.Manager;
+import com.example.cinemaApp.models.User;
 import com.example.cinemaApp.service.ManagerService;
+import com.example.cinemaApp.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,15 +24,18 @@ public class ManagerController {
     @Autowired
     private ManagerService managerService;
 
+    @Autowired
+    private UserService userService;
     // @GetMapping("/")
     // public String welcome() {
     // return "home.html";
     // }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ResponseEntity<List<Manager>> getManagers() {
-        List<Manager> managers;
-        managers = managerService.findAll();
+    public ResponseEntity<List<User>> getManagers() {
+        List<User> managers;
+
+        managers = userService.findByPosition("manager");
 
         return new ResponseEntity<>(managers, HttpStatus.OK);
     }
