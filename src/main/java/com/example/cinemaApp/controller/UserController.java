@@ -69,13 +69,4 @@ public class UserController {
 
     }
 
-    // ? tehnicki ova metoda mi ni ne treba
-    @RequestMapping(value = "", method = RequestMethod.GET)
-    public ResponseEntity<List<User>> getUsers() {
-        List<User> users;
-        users = userService.findAll();
-
-        return new ResponseEntity<>(users, HttpStatus.OK);
-    }
-
 }

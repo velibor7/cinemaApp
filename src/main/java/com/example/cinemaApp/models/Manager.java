@@ -25,4 +25,12 @@ public class Manager extends User {
     public List<Cinema> getCinemas() {
         return cinemas;
     }
+
+    public Manager() {
+    }
+
+    public Manager(String username, String password, String firstname, String surname, String phoneNumber, String email,
+            String dateOfBirth, String position, Boolean active) {
+        super(username, password, firstname, surname, phoneNumber, email, dateOfBirth, position, active);
+    }
 }
