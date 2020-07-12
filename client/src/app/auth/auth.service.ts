@@ -14,7 +14,8 @@ export class AuthService {
   private isAuthenticated = false;
   private authStatusListener = new Subject<boolean>();
   private positionStatusListener = new Subject<string>();
-
+  private userStatusListener = new Subject<Object>();
+  private currentUser: Object;
   constructor(private http: HttpClient, private router: Router) {}
 
   getToken() {
@@ -44,33 +45,10 @@ export class AuthService {
     return this.positionStatusListener.asObservable();
   }
 
-  /*
-  login(email: string, password: string) {
-    this.http
-      .post<{ token: string; expiresIn: number; userId: string }>(
-        "http://localhost:3000/api/user/login",
-        { email: email, password: password }s
-      )
-      .subscribe((response) => {
-        const token = response.token;
-        this.token = token;
-        if (token) {
-          const expiresInDuration = response.expiresIn;
-          this.setAuthTimer(expiresInDuration);
-          this.isAuthenticated = true;
-          this.userId = response.userId;
-          this.authStatusListener.next(true);
-          const now = new Date();
-          const expirationDate = new Date(
-            now.getTime() + expiresInDuration * 1000
-          );
-          console.log(expirationDate);
-          this.saveAuthData(token, expirationDate, this.userId);
-          this.router.navigate(["/"]);
-        }
-      });
+  getUserStatusListener() {
+    // console.log("[getAuthStatusListener] " )
+    return this.userStatusListener.asObservable();
   }
-  */
 
   autoAuthUser() {
     const authInfo = this.getAuthData();
@@ -142,6 +120,8 @@ export class AuthService {
             return;
           }
         });
+
+        this.currentUser = res;
         Object.keys(res).forEach((key) => {
           if (key == "id") {
             this.userId = res[key];
@@ -161,6 +141,14 @@ export class AuthService {
         // this.userId = user;
         this.router.navigate(["/"]);
       });
+  }
+
+  // getUser(id: string) {
+  // console.log("hit");
+  // }
+
+  getCurrentUser() {
+    return this.currentUser;
   }
 
   createUser(
