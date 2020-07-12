@@ -10,9 +10,10 @@ export class AuthService {
   private token: string;
   private tokenTimer: any;
   private userId: string;
-  private userType: string;
+  private userPosition: string;
   private isAuthenticated = false;
   private authStatusListener = new Subject<boolean>();
+  private positionStatusListener = new Subject<string>();
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -20,8 +21,8 @@ export class AuthService {
     return this.token;
   }
 
-  getType() {
-    return this.userType;
+  getPosition() {
+    return this.userPosition;
   }
 
   getIsAuth() {
@@ -36,6 +37,11 @@ export class AuthService {
   getAuthStatusListener() {
     // console.log("[getAuthStatusListener] " )
     return this.authStatusListener.asObservable();
+  }
+
+  getPositionStatusListener() {
+    // console.log("[getAuthStatusListener] " )
+    return this.positionStatusListener.asObservable();
   }
 
   /*
@@ -130,40 +136,28 @@ export class AuthService {
       .post("http://localhost:8080/api/user/login", authData)
       .subscribe((res) => {
         console.log(res);
+        Object.keys(res).forEach(() => {
+          if (res["id"] == null) {
+            console.log("nema dalje");
+            return;
+          }
+        });
         Object.keys(res).forEach((key) => {
           if (key == "id") {
-            if (res[key] == null) {
-              this.userId = null;
-              this.isAuthenticated = false;
-              this.authStatusListener.next(false);
-              clearTimeout(this.tokenTimer);
-              this.clearAuthData();
-              console.log("WRONG PASSWORD!");
-              return;
-            } else {
-              this.userId = res[key];
-              console.log(this.userId);
-              this.isAuthenticated = true;
-              this.authStatusListener.next(true);
-              this.saveAuthData(this.userId);
-            }
+            this.userId = res[key];
+            console.log(this.userId);
+            this.isAuthenticated = true;
+            this.authStatusListener.next(true);
+            this.saveAuthData(this.userId);
           }
           // console.log(key);
         });
+        Object.keys(res).forEach((key) => {
+          this.userPosition = res["position"];
+          console.log("position: " + this.userPosition);
+          this.positionStatusListener.next(this.userPosition);
+        });
 
-        // Object.keys(res).forEach((key) => {
-        // if (key == "id") {
-        // if (res[key] == "null") {
-        // return;
-        // }
-        // this.userId = res[key];
-        // console.log(this.userId);
-        // this.isAuthenticated = true;
-        // this.authStatusListener.next(true);
-        // this.saveAuthData(this.userId);
-        // }
-        // // console.log(key);
-        // });
         // this.userId = user;
         this.router.navigate(["/"]);
       });

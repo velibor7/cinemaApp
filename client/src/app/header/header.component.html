@@ -8,9 +8,9 @@
   <!-- <input  class="search" type="search" placeholder="What do you want to watch today?"> -->
 <nav>
     <ul>
-        <li><a routerLink="/reservations">Moje rezervacije</a></li>
-        <li><a routerLink="/admin">Admin panel</a></li> 
-        <li><a routerLink="/manager">Manager panel</a></li> 
+        <li><a routerLink="/reservations" *ngIf="position == 'viewer'">Moje rezervacije</a></li>
+        <li><a routerLink="/admin" *ngIf="position == 'admin'">Admin panel</a></li> 
+        <li><a routerLink="/manager" *ngIf="position == 'manager'">Manager panel</a></li> 
         <!-- <li><a routerLink="/">Reservations</a></li> --> 
         <!-- <li><a routerLink="/">Reservations</a></li> --> 
     </ul>
