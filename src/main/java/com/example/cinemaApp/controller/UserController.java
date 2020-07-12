@@ -1,6 +1,7 @@
 package com.example.cinemaApp.controller;
 
 import java.util.List;
+import java.util.Objects;
 
 import com.example.cinemaApp.dto.UserDTO;
 import com.example.cinemaApp.models.User;
@@ -43,13 +44,29 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST, consumes = "application/json")
-    public ResponseEntity<UserDTO> login(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<User> login(@RequestBody UserDTO userDTO) {
         // System.out.print("hit");
         // return new ResponseEntity<>();
         // System.out.println(userDTO);
 
+        // ! ovde moze da ga ne nadje, kasnije fix
+        User foundUser = userService.findByEmail(userDTO.getEmail());
+        User returnUser = new User("fail");
+
+        System.out.println(foundUser.getPassword());
+        System.out.println(userDTO.getPassword());
+
+        String foundPW = foundUser.getPassword();
+        String idkPW = userDTO.getPassword();
+
+        if (Objects.equals(foundPW, idkPW)) {
+            // return new ResponseEntity<>(userDTO, HttpStatus.ACCEPTED);
+            System.out.println("USAO");
+            returnUser = foundUser;
+        }
+
+        return new ResponseEntity<>(returnUser, HttpStatus.ACCEPTED);
         // ! acc - created
-        return new ResponseEntity<>(userDTO, HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

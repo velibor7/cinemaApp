@@ -65,6 +65,18 @@ public class User implements Serializable {
         this.active = active;
     }
 
+    public User(String username) {
+        this.username = username;
+        this.password = "";
+        this.firstname = "";
+        this.surname = "";
+        this.phoneNumber = "";
+        this.email = "";
+        this.dateOfBirth = "";
+        this.position = "";
+        this.active = false;
+    }
+
     public Integer getId() {
         return id;
     }

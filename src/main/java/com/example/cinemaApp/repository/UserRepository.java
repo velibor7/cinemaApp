@@ -18,6 +18,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> findByPosition(String position);
 
     User findByUsername(String username);
+
+    User findByEmail(String email);
 }
 /*
  * Repository je interfejs koji služi za komunikaciju sa bazom iz koje izvlači
