@@ -75,7 +75,22 @@ INSERT INTO PROJECTION
     (day, time, price, movie_id, auditorium_id)
 VALUES
     ('07.05.2020.', '20:00', 300, 1, 2);
-
+INSERT INTO PROJECTION
+    (day, time, price, movie_id, auditorium_id)
+VALUES
+    ('08.05.2020.', '14:00', 200, 2, 3);
+INSERT INTO PROJECTION
+    (day, time, price, movie_id, auditorium_id)
+VALUES
+    ('10.05.2020.', '20:00', 350, 3, 4);
+INSERT INTO PROJECTION
+    (day, time, price, movie_id, auditorium_id)
+VALUES
+    ('11.05.2020.', '16:00', 400, 3, 1);
+INSERT INTO PROJECTION
+    (day, time, price, movie_id, auditorium_id)
+VALUES
+    ('20.05.2020.', '19:00', 150, 5, 4);
 
     -- ! ovde nisam siguran za date
 
