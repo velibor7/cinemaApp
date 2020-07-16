@@ -12,6 +12,7 @@ import { AddmanagerComponent } from "./admin/addmanager/addmanager.component";
 import { MovieDetailComponent } from "./home/movie-detail/movie-detail.component";
 import { MovieStartComponent } from "./home/movie-start/movie-start.component";
 import { HomeResolverService } from "./home/home-resolver.service";
+import { CinemalistComponent } from "./admin/cinemalist/cinemalist.component";
 
 const routes: Routes = [
   {
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: "admin", component: AdminComponent },
   { path: "admin/addcinema", component: AddcinemaComponent },
   { path: "admin/addmanager", component: AddmanagerComponent },
+  { path: "admin/cinemalist", component: CinemalistComponent },
   { path: "manager", component: ManagerComponent },
 ];
 

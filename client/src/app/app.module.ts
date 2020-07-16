@@ -22,6 +22,7 @@ import { ManagerComponent } from "./manager/manager.component";
 import { AddmanagerComponent } from "./admin/addmanager/addmanager.component";
 
 import { ConfirmationPopoverModule } from "angular-confirmation-popover";
+import { CinemalistComponent } from './admin/cinemalist/cinemalist.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ConfirmationPopoverModule } from "angular-confirmation-popover";
     AddcinemaComponent,
     ManagerComponent,
     AddmanagerComponent,
+    CinemalistComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 <!-- ovde ide ngFor -->
 <div class="item" *ngFor="let projection of projections; let i = index" [routerLink]="projection.id">
-  <h3>{{ projection.movie.name }}</h3>
-  <p>{{ projection.day }} at {{ projection.time }}</p>
+  <h3>{{ projection?.movie.name }}</h3>
+  <p>{{ projection?.day }} at {{ projection?.time }}</p>
 </div>

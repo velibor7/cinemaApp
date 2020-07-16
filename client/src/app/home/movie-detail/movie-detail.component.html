@@ -1,14 +1,14 @@
-<h2>{{ projection.movie.name }}</h2>
+<h2>{{ projection?.movie.name }}</h2>
 
 <div>
-  {{ projection.movie.description}}
+  {{ projection?.movie.description}}
 </div>
 <!-- <img src="../../../assets/img/exam.jpeg" alt=""> -->
-<p>{{ projection.day }} at {{ projection.time }}</p>
-<p>Genre: {{ projection.movie.genre }}</p>
-<p>Duration: {{ projection.movie.duration }}</p>
-<p>Auditorium: {{ projection.auditorium.label }}</p>
-<p>Price: {{ projection.price }}RSD</p>
+<p>{{ projection?.day }} at {{ projection?.time }}</p>
+<p>Genre: {{ projection?.movie.genre }}</p>
+<p>Duration: {{ projection?.movie.duration }} minutes</p>
+<p>Auditorium: {{ projection?.auditorium.label }}</p>
+<p>Price: {{ projection?.price }}RSD</p>
 
 <div></div>
 

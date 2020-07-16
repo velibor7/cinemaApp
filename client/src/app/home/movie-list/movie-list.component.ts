@@ -19,6 +19,7 @@ export class MovieListComponent implements OnInit {
       .getProjectionUpdateListener()
       .subscribe((projData) => {
         this.projections = projData.projections;
+        console.log(this.projections);
       });
   }
 
