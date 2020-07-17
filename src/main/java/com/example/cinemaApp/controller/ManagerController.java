@@ -3,8 +3,10 @@ package com.example.cinemaApp.controller;
 import java.util.List;
 
 import com.example.cinemaApp.dto.ManagerDTO;
+import com.example.cinemaApp.models.Cinema;
 import com.example.cinemaApp.models.Manager;
 import com.example.cinemaApp.models.User;
+import com.example.cinemaApp.service.CinemaService;
 import com.example.cinemaApp.service.ManagerService;
 import com.example.cinemaApp.service.UserService;
 
@@ -28,6 +30,9 @@ public class ManagerController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CinemaService cinemaService;
 
     // * getAll
     @RequestMapping(value = "", method = RequestMethod.GET)
@@ -82,4 +87,15 @@ public class ManagerController {
 
         return new ResponseEntity<Manager>(manager, HttpStatus.OK);
     }
+
+    // * lista bioskopa od ovog managera
+    @RequestMapping(value = "{id}/cinemalist", method = RequestMethod.GET)
+    public ResponseEntity<List<Cinema>> getManagersCinemas(@PathVariable Integer id) {
+        Manager manager = managerService.findOne(id);
+
+        List<Cinema> cinemas = this.cinemaService.findByManager(manager);
+
+        return new ResponseEntity<List<Cinema>>(cinemas, HttpStatus.OK);
+    }
+
 }

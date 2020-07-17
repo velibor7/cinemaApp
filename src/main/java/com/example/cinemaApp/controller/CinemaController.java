@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,12 +30,6 @@ public class CinemaController {
     // return "home.html";
     // }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json")
-    public ResponseEntity add(@RequestBody CinemaDTO cinemaDTO) {
-        return new ResponseEntity<>(cinemaDTO, HttpStatus.CREATED);
-        // ! acc - created return new ResponseEntity<>(, HttpStatus.ACCEPTED);
-    }
-
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Cinema>> getCinemas() {
         // ! podsetnik: koriscen je JsonIgnore u modelu, zato sto dolazi do beskonacne
@@ -50,6 +45,38 @@ public class CinemaController {
         // }
 
         return new ResponseEntity<>(cinemas, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json")
+    public ResponseEntity createCinema(@RequestBody CinemaDTO cinemaDTO) {
+        return new ResponseEntity<>(cinemaDTO, HttpStatus.CREATED);
+        // ! acc - created return new ResponseEntity<>(, HttpStatus.ACCEPTED);
+    }
+
+    // * brisanje
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Cinema> deleteCinema(@PathVariable Integer id) {
+        Cinema cinema = cinemaService.findOne(id);
+
+        if (cinema == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        cinema.getAuditoriums().clear();
+
+        cinemaService.delete(id);
+
+        return new ResponseEntity<Cinema>(cinema, HttpStatus.OK);
+    }
+
+    // * izmena
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Cinema> editCinema(@PathVariable Integer id) {
+        Cinema cinema = cinemaService.findOne(id);
+
+        // ! menjanje cinemaa
+
+        return new ResponseEntity<Cinema>(cinema, HttpStatus.OK);
     }
 
 }
