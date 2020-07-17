@@ -89,7 +89,7 @@ public class ManagerController {
     }
 
     // * lista bioskopa od ovog managera
-    @RequestMapping(value = "{id}/cinemalist", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/cinemalist", method = RequestMethod.GET)
     public ResponseEntity<List<Cinema>> getManagersCinemas(@PathVariable Integer id) {
         Manager manager = managerService.findOne(id);
 

@@ -3,7 +3,9 @@ package com.example.cinemaApp.controller;
 import java.util.List;
 
 import com.example.cinemaApp.dto.CinemaDTO;
+import com.example.cinemaApp.models.Auditorium;
 import com.example.cinemaApp.models.Cinema;
+import com.example.cinemaApp.service.AuditoriumService;
 import com.example.cinemaApp.service.CinemaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +27,8 @@ public class CinemaController {
     @Autowired
     private CinemaService cinemaService;
 
-    // @GetMapping("/")
-    // public String welcome() {
-    // return "home.html";
-    // }
+    @Autowired
+    private AuditoriumService auditoriumService;
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Cinema>> getCinemas() {
@@ -77,6 +77,17 @@ public class CinemaController {
         // ! menjanje cinemaa
 
         return new ResponseEntity<Cinema>(cinema, HttpStatus.OK);
+    }
+
+    // * lista auditoriuma od bioskopa sa id-em
+    @RequestMapping(value = "/{id}/auditoriumlist", method = RequestMethod.GET)
+    public ResponseEntity<List<Auditorium>> getCinemasAuditoriums(@PathVariable Integer id) {
+
+        Cinema cinema = cinemaService.findOne(id);
+
+        List<Auditorium> auditoriums = this.auditoriumService.findByCinema(cinema);
+
+        return new ResponseEntity<List<Auditorium>>(auditoriums, HttpStatus.OK);
     }
 
 }
