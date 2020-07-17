@@ -65,6 +65,11 @@ public class UserController {
             returnUser = foundUser;
         }
 
+        if (foundUser.getActive() == false) {
+            System.out.println("NIJE AKTIVAN");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
         return new ResponseEntity<>(returnUser, HttpStatus.ACCEPTED);
         // ! acc - created
     }
