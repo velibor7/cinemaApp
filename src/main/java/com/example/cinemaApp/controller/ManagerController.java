@@ -13,9 +13,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "/api/manager")
@@ -52,4 +54,17 @@ public class ManagerController {
 
         return new ResponseEntity<>(newManagerDTO, HttpStatus.ACCEPTED);
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Manager> deleteManager(@PathVariable Integer id) {
+        Manager manager = managerService.findOne(id);
+        if(manager == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND)
+        }
+
+        managerService.delete(id);
+
+        return new ResponseEntity<Manager>(manager, HttpStatus.OK);
+    }
+
 }

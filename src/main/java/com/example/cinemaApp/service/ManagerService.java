@@ -17,4 +17,5 @@ public interface ManagerService {
 
     Manager save(Manager manager);
 
+    Manager delete(Integer id);
 }

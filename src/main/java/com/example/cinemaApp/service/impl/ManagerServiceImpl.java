@@ -28,4 +28,12 @@ public class ManagerServiceImpl implements ManagerService {
     public Manager save(Manager manager) {
         return this.managerRepo.save(manager);
     }
+
+    public Manager delete(Integer id) {
+        Manager manager = managerRepo.getOne(id);
+        if (manager != null) {
+            managerRepo.delete(manager);
+        }
+        return manager;
+    }
 }

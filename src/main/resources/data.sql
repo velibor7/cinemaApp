@@ -2,30 +2,42 @@
 INSERT INTO USER
     (user_type, active, date_of_birth, email, firstname, password, phone_number, position, surname, username)
 VALUES
-    (1, TRUE, '01.01.1990', 'pero@test.com', 'Pero', 'pero123', '+381 64 5432 332', 'viewer', 'Peric', 'pero');
+    (1, TRUE, '01.01.2004', 'pero@test.com', 'Pero', 'pero123', '+381 64 5432 332', 'viewer', 'Peric', 'pero');
 INSERT INTO USER
     (user_type, active, date_of_birth, email, firstname, password, phone_number, position, surname, username)
 VALUES
-    (2, TRUE, '01.01.1990', 'menadjer1@test.com', 'Menadjer', 'menadjer123', '+381 64 5432 332', 'manager', 'Menadjerovic', 'menadjer1');
+    (2, TRUE, '01.02.1994', 'djoka@test.com', 'Djoka', 'djoka123', '+381 64 1111 332', 'viewer', 'Djoka', 'Djokic');
 INSERT INTO USER
     (user_type, active, date_of_birth, email, firstname, password, phone_number, position, surname, username)
 VALUES
-    (3, TRUE, '01.01.1990', 'admin1@test.com', 'Admin', 'admin123', '+381 64 5432 332', 'admin', 'Adminkovic', 'admin1');
+    (3, TRUE, '01.01.1992', 'menadjer1@test.com', 'Menadjer1', 'menadjer123', '+381 64 5432 332', 'manager', 'Menadjerovic1', 'menadjer1');
+INSERT INTO USER
+    (user_type, active, date_of_birth, email, firstname, password, phone_number, position, surname, username)
+VALUES
+    (4, TRUE, '01.01.1991', 'menadjer2@test.com', 'Menadjer2', 'menadjer123', '+381 64 5432 332', 'manager', 'Menadjerovic2', 'menadjer2');
+INSERT INTO USER
+    (user_type, active, date_of_birth, email, firstname, password, phone_number, position, surname, username)
+VALUES
+    (5, TRUE, '01.01.1950', 'admin1@test.com', 'Admin1', 'admin123', '+381 64 5432 332', 'admin', 'Adminkovic1', 'admin1');
+INSERT INTO USER
+    (user_type, active, date_of_birth, email, firstname, password, phone_number, position, surname, username)
+VALUES
+    (6, TRUE, '01.01.1965', 'admin2@test.com', 'Admin2', 'admin123', '+381 64 5432 332', 'admin', 'Adminkovic2', 'admin2');
 
 -- CINEMA
 
 INSERT INTO CINEMA
     (name, address, phone_number, email, manager_id)
 VALUES
-    ('Cineplexx', 'Trg Dositeja Obradovića 6', '+381 60 123 4567', 'cineplexx@test.com', 2);
+    ('Cineplexx', 'Trg Dositeja Obradovića 6', '+381 60 123 4567', 'cineplexx@test.com', 3);
 INSERT INTO CINEMA
     (name, address, phone_number, email, manager_id)
 VALUES
-    ('Cinestar', 'BIG', '+381 69 876 5432', 'cinestar@test.com', 2);
+    ('Cinestar', 'BIG', '+381 69 876 5432', 'cinestar@test.com', 4);
 INSERT INTO CINEMA
     (name, address, phone_number, email, manager_id)
 VALUES
-    ('Neki treci bioskop', 'Djordja Petrovica 5', '+381 61 571 1322', 'nekitreci@test.com', 2);
+    ('Neki treci bioskop', 'Djordja Petrovica 5', '+381 61 571 1322', 'nekitreci@test.com', 4);
 
 
 -- AUDITORIUM
