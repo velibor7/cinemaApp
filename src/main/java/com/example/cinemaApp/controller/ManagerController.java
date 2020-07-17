@@ -29,6 +29,7 @@ public class ManagerController {
     @Autowired
     private UserService userService;
 
+    // * getAll
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ResponseEntity<List<User>> getManagers() {
         List<User> managers;
@@ -38,6 +39,7 @@ public class ManagerController {
         return new ResponseEntity<>(managers, HttpStatus.OK);
     }
 
+    // * kreiranje
     @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity<ManagerDTO> createManager(@RequestBody ManagerDTO managerDTO) {
 
@@ -55,16 +57,29 @@ public class ManagerController {
         return new ResponseEntity<>(newManagerDTO, HttpStatus.ACCEPTED);
     }
 
+    // * brisanje
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Manager> deleteManager(@PathVariable Integer id) {
         Manager manager = managerService.findOne(id);
-        if(manager == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND)
+
+        if (manager == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
+        manager.getCinemas().clear();
 
         managerService.delete(id);
 
         return new ResponseEntity<Manager>(manager, HttpStatus.OK);
     }
 
+    // * izmena
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Manager> editManager(@PathVariable Integer id) {
+        Manager manager = managerService.findOne(id);
+
+        // ! menjanje managera
+
+        return new ResponseEntity<Manager>(manager, HttpStatus.OK);
+    }
 }

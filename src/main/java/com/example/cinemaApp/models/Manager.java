@@ -12,7 +12,7 @@ import java.util.*;
 public class Manager extends User {
     private static final long serialVersionUID = 1L;
 
-    @OneToMany(mappedBy = "manager", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "manager", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonBackReference
     private List<Cinema> cinemas = new ArrayList<Cinema>();
 

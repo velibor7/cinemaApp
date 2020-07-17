@@ -36,7 +36,7 @@ public class Auditorium implements Serializable {
     // private Set<Movie> movies = new HashSet<>();
 
     // * list of projections in this auditorium
-    @ManyToMany
+    @ManyToMany()
     @JoinTable(name = "projections", joinColumns = @JoinColumn(name = "auditorium_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "projection_id", referencedColumnName = "id"))
     @JsonBackReference
     private List<Projection> projectionsList = new ArrayList<>();

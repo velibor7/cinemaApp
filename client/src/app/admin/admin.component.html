@@ -8,7 +8,7 @@
         {{ manager.firstname }} {{ manager.surname}}
     </span>
     <span>
-        <button (click)="onEdit()" class="btn edit">EDIT</button>
-        <button (click)="onRemove()" class="btn">REMOVE</button>
+        <button (click)="onEditManager()" class="btn edit">EDIT</button>
+        <button (click)="onRemoveManager(manager.id)" class="btn">REMOVE</button>
     </span>
 </div>

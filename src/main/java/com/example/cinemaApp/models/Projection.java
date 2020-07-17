@@ -33,7 +33,7 @@ public class Projection implements Serializable {
     @JsonBackReference
     private Cinema cinema;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonManagedReference
     private Auditorium auditorium;
 
