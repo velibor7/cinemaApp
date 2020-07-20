@@ -6,3 +6,22 @@
         <li>Kreiranje i izmena bioskopa za koji je zaduzen</li>
     </ul>
 </div>
+
+<div class="cnm-container" *ngFor="let cinema of cinemas; let i = index" [routerLink]="cinema.id">
+    <span>
+        {{ cinema.name }}
+    </span>
+    <span>
+        {{ cinema.address }}
+    </span>
+    <span>
+        {{ cinema.phoneNumber }}
+    </span>
+    <span>
+        {{ cinema.email }}
+    </span>
+    <span>
+        <button (click)="onEditCinema()" class="btn edit">EDIT</button>
+        <button (click)="onRemoveCinema(cinema.id)" class="btn">REMOVE</button>
+    </span>
+</div>

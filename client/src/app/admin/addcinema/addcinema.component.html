@@ -30,6 +30,14 @@
       />
       <br />
       <input
+        type="email"
+        placeholder="email"
+        name="email"
+        ngModel
+        #emailInput="ngModel"
+      />
+      <br />
+      <input
         type="text"
         placeholder="manager"
         name="manager"
@@ -47,7 +55,7 @@
             #phonenumInput="ngModel"
             />
         -->
-      <button type="submit">ADD CINEMA</button>
+      <button type="submit" class="btn edit">ADD CINEMA</button>
     </form>
   </div>
 </div>

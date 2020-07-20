@@ -1,0 +1,14 @@
+
+    <p>Auditoriums from cinema w id: {{ id }} </p> <br>
+<div class="cnm-container" *ngFor="let auditorium of auditoriums; let i = index">
+    <span>
+       Auditorium label:  {{ auditorium.label }}
+    </span>
+    <span>
+       Capacity: {{ auditorium.capacity }}
+    </span>
+    <span>
+        <button (click)="onEditAuditorium()" class="btn edit">EDIT</button>
+        <button (click)="onRemoveAuditorium(auditorium.id)" class="btn">REMOVE</button>
+    </span>
+</div>

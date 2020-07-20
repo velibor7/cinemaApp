@@ -13,6 +13,7 @@ import { MovieDetailComponent } from "./home/movie-detail/movie-detail.component
 import { MovieStartComponent } from "./home/movie-start/movie-start.component";
 import { HomeResolverService } from "./home/home-resolver.service";
 import { CinemalistComponent } from "./admin/cinemalist/cinemalist.component";
+import { AuditoriumsComponent } from "./manager/auditoriums/auditoriums.component";
 
 const routes: Routes = [
   {
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: "admin/addmanager", component: AddmanagerComponent },
   { path: "admin/cinemalist", component: CinemalistComponent },
   { path: "manager", component: ManagerComponent },
+  { path: "manager/:id", component: AuditoriumsComponent },
 ];
 
 @NgModule({

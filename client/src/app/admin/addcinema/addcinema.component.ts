@@ -20,6 +20,7 @@ export class AddcinemaComponent implements OnInit {
       form.value.cname,
       form.value.address,
       form.value.phonenum,
+      form.value.email,
       form.value.manager
     );
   }

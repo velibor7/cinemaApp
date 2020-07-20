@@ -1,0 +1,36 @@
+$primary: #a00000;
+.cnm-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em auto;
+
+  span {
+    margin: 0.3em auto;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  font-family: "Monserrat", sans-serif;
+  display: inline-flex;
+  transition-duration: 0.3s;
+  // height: 2em;
+  color: #000;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(124, 124, 124);
+  border-radius: 3px;
+  // padding-bottom: 1em 1em 1em 1em;
+  padding: 0.5em;
+  margin: 0.5em;
+  &:hover {
+    background-color: $primary;
+    color: #fff;
+  }
+}
+.edit {
+  &:hover {
+    background-color: #d1cd00;
+    color: #000;
+  }
+}

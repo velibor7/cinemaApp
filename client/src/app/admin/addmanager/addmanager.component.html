@@ -5,6 +5,21 @@
         (submit)="onAddManager(managerForm)"
         #managerForm="ngForm"
       >
+      <input
+        type="text"
+        placeholder="username"
+        name="username"
+        ngModel
+        #usernameInput="ngModel"
+        />
+        <input
+          type="password"
+          placeholder="password"
+          name="password"
+          autocomplete="none"
+          ngModel
+          #passwordInput="ngModel"
+        />
         <input
           type="text"
           placeholder="first name"
@@ -12,20 +27,12 @@
           ngModel
           #firstnameInput="ngModel"
         />
-
         <input
           type="text"
           placeholder="surname"
-          name="surnamename"
+          name="surname"
           ngModel
           #surnameInput="ngModel"
-        />
-        <input
-          type="text"
-          placeholder="username"
-          name="username"
-          ngModel
-          #usernameInput="ngModel"
         />
         <input
           type="text"
@@ -40,14 +47,6 @@
           name="email"
           ngModel
           #emailInput="ngModel"
-        />
-        <input
-          type="password"
-          placeholder="password"
-          name="password"
-          autocomplete="none"
-          ngModel
-          #passwordInput="ngModel"
         />
         <button type="submit">ADD</button>
       </form>
