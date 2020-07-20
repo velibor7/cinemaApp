@@ -1,10 +1,13 @@
 package com.example.cinemaApp.dto;
 
+import com.example.cinemaApp.models.Cinema;
+
 public class AuditoriumDTO {
 
     private Integer id;
     private Integer capacity;
     private String label;
+    private Cinema cinema;
 
     public Integer getId() {
         return id;
@@ -30,13 +33,26 @@ public class AuditoriumDTO {
         this.label = label;
     }
 
+    public Cinema getCinema() {
+        return cinema;
+    }
+
+    public void setCinema(Cinema cinema) {
+        this.cinema = cinema;
+    }
+
     public AuditoriumDTO(Integer id, Integer capacity, String label) {
         this.id = id;
         this.capacity = capacity;
         this.label = label;
     }
 
-    // private Cinema cinema;
+    public AuditoriumDTO(Integer id, Integer capacity, String label, Cinema cinema) {
+        this.id = id;
+        this.capacity = capacity;
+        this.label = label;
+        this.cinema = cinema;
+    }
 
     // !wrong sadrzi film i broj rezervisanih karata za datu projekciju
     // @ManyToMany

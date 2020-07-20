@@ -51,8 +51,8 @@ public class ManagerController {
     public ResponseEntity<ManagerDTO> createManager(@RequestBody ManagerDTO managerDTO) {
 
         Manager manager = new Manager(managerDTO.getUsername(), managerDTO.getPassword(), managerDTO.getName(),
-                managerDTO.getSurname(), managerDTO.getPhoneNumber(), managerDTO.getEmail(), "01.01.2020.",
-                managerDTO.getPosition(), managerDTO.getActive());
+                managerDTO.getSurname(), managerDTO.getPhoneNumber(), managerDTO.getEmail(), "01.01.2020.", "manager",
+                true);
 
         Manager newManager = managerService.save(manager);
 

@@ -3,9 +3,12 @@ package com.example.cinemaApp.controller;
 import java.util.List;
 
 import com.example.cinemaApp.service.AuditoriumService;
+import com.example.cinemaApp.service.CinemaService;
 import com.example.cinemaApp.dto.AuditoriumDTO;
 import com.example.cinemaApp.models.Auditorium;
+import com.example.cinemaApp.models.Cinema;
 
+import org.apache.tomcat.util.http.parser.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +25,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AuditoriumController {
     @Autowired
     private AuditoriumService auditoriumService;
+
+    @Autowired
+    private CinemaService cinemaService;
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Auditorium>> getAuditoriums() {
@@ -40,41 +46,32 @@ public class AuditoriumController {
     }
 
     // * kreiranje
-    // @RequestMapping(value = "/create", method = RequestMethod.POST, consumes =
-    // "application/json")
-    // public ResponseEntity<AuditoriumDTO> createAuditorium(@RequestBody
-    // AuditoriumDTO auditoriumDTO) {
+    @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = "application/json; charset=utf-8")
+    public ResponseEntity<AuditoriumDTO> createAuditorium(@RequestBody AuditoriumDTO auditoriumDTO) {
 
-    // Auditorium auditorium = new Auditorium(auditoriumDTO.getUsername(),
-    // auditoriumDTO.getPassword(),
-    // auditoriumDTO.getName(), auditoriumDTO.getSurname(),
-    // auditoriumDTO.getPhoneNumber(),
-    // auditoriumDTO.getEmail(), "01.01.2020.", auditoriumDTO.getPosition(),
-    // auditoriumDTO.getActive());
+        Auditorium auditorium = new Auditorium(auditoriumDTO.getCapacity(), auditoriumDTO.getLabel());
 
-    // Auditorium newAuditorium = auditoriumService.save(auditorium);
+        Auditorium newAuditorium = auditoriumService.save(auditorium);
 
-    // AuditoriumDTO newAuditoriumDTO = new AuditoriumDTO(newAuditorium.getId(),
-    // newAuditorium.getUsername(),
-    // newAuditorium.getPassword(), newAuditorium.getFirstname(),
-    // newAuditorium.getSurname(),
-    // newAuditorium.getPhoneNumber(), newAuditorium.getEmail(), "01.01.2020.",
-    // newAuditorium.getPosition(),
-    // newAuditorium.getActive());
+        AuditoriumDTO newAuditoriumDTO = new AuditoriumDTO(newAuditorium.getId(), newAuditorium.getCapacity(),
+                newAuditorium.getLabel());
 
-    // return new ResponseEntity<>(newAuditoriumDTO, HttpStatus.ACCEPTED);
-    // }
+        return new ResponseEntity<>(newAuditoriumDTO, HttpStatus.ACCEPTED);
+    }
 
     // * brisanje
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Auditorium> deleteAuditorium(@PathVariable Integer id) {
-        Auditorium auditorium = auditoriumService.findOne(id);
+    @RequestMapping(value = "/{cinemaId}/{audId}", method = RequestMethod.DELETE)
+    public ResponseEntity<Auditorium> deleteAuditorium(@PathVariable Integer cinemaId, @PathVariable Integer audId) {
+        Cinema cinema = cinemaService.findOne(cinemaId);
+
+        Auditorium auditorium = auditoriumService.findOne(audId);
 
         if (auditorium == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        auditoriumService.delete(id);
+        cinema.getAuditoriums().remove(auditorium);
+        auditoriumService.delete(audId);
 
         return new ResponseEntity<Auditorium>(auditorium, HttpStatus.OK);
     }

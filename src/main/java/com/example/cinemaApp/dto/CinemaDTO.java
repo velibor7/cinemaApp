@@ -85,4 +85,13 @@ public class CinemaDTO {
         this.email = email;
     }
 
+    public CinemaDTO(Integer id, String name, String address, String phoneNumber, String email, Manager manager) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.manager = manager;
+    }
+
 }

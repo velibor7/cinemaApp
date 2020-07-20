@@ -59,8 +59,8 @@ public class CinemaController {
 
         Cinema newCinema = cinemaService.save(cinema);
 
-        CinemaDTO newCinemaDTO = new CinemaDTO(newCinema.getName(), newCinema.getAddress(), newCinema.getPhoneNumber(),
-                newCinema.getEmail(), newCinema.getManager());
+        CinemaDTO newCinemaDTO = new CinemaDTO(newCinema.getId(), newCinema.getName(), newCinema.getAddress(),
+                newCinema.getPhoneNumber(), newCinema.getEmail(), newCinema.getManager());
 
         return new ResponseEntity<>(newCinemaDTO, HttpStatus.CREATED);
     }

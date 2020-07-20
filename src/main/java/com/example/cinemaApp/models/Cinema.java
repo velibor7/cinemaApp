@@ -43,7 +43,7 @@ public class Cinema implements Serializable {
     private Manager manager;
 
     // * lista sala
-    @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = false)
+    @OneToMany(mappedBy = "cinema", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private final Set<Auditorium> auditoriums = new HashSet<>();
 

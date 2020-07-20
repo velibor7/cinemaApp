@@ -82,4 +82,18 @@ public class Auditorium implements Serializable {
         this.projectionsList = projectionsList;
     }
 
+    public Auditorium(Integer capacity, String label) {
+        this.capacity = capacity;
+        this.label = label;
+    }
+
+    public Auditorium(Integer capacity, String label, Cinema cinema) {
+        this.capacity = capacity;
+        this.label = label;
+        this.cinema = cinema;
+    }
+
+    public Auditorium() {
+    }
+
 }
