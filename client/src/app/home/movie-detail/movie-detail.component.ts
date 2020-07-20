@@ -30,6 +30,10 @@ export class MovieDetailComponent implements OnInit {
     console.log("RESERVED!");
     alert("REZERVISANO!");
   }
+
+  onWatched() {
+    console.log("film je oznacen kao gledan!");
+  }
 }
 
 /*
