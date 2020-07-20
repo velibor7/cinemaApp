@@ -30,6 +30,12 @@ public class AuditoriumDTO {
         this.label = label;
     }
 
+    public AuditoriumDTO(Integer id, Integer capacity, String label) {
+        this.id = id;
+        this.capacity = capacity;
+        this.label = label;
+    }
+
     // private Cinema cinema;
 
     // !wrong sadrzi film i broj rezervisanih karata za datu projekciju

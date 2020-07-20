@@ -1,7 +1,9 @@
 package com.example.cinemaApp.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.example.cinemaApp.dto.CinemaDTO;
 import com.example.cinemaApp.dto.ManagerDTO;
 import com.example.cinemaApp.models.Cinema;
 import com.example.cinemaApp.models.Manager;
@@ -90,12 +92,19 @@ public class ManagerController {
 
     // * lista bioskopa od ovog managera
     @RequestMapping(value = "/{id}/cinemalist", method = RequestMethod.GET)
-    public ResponseEntity<List<Cinema>> getManagersCinemas(@PathVariable Integer id) {
+    public ResponseEntity<List<CinemaDTO>> getManagersCinemas(@PathVariable Integer id) {
         Manager manager = managerService.findOne(id);
 
         List<Cinema> cinemas = this.cinemaService.findByManager(manager);
+        List<CinemaDTO> cinemasDTOS = new ArrayList<>();
 
-        return new ResponseEntity<List<Cinema>>(cinemas, HttpStatus.OK);
+        for (Cinema cinema : cinemas) {
+            CinemaDTO cinemaDTO = new CinemaDTO(cinema.getId(), cinema.getName(), cinema.getAddress(),
+                    cinema.getPhoneNumber(), cinema.getEmail());
+            cinemasDTOS.add(cinemaDTO);
+        }
+
+        return new ResponseEntity<List<CinemaDTO>>(cinemasDTOS, HttpStatus.OK);
     }
 
 }

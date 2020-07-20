@@ -108,4 +108,15 @@ public class Cinema implements Serializable {
         return projectionsSchedule;
     }
 
+    public Cinema() {
+    }
+
+    public Cinema(String name, String address, String phoneNumber, String email, Manager manager) {
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.manager = manager;
+    }
+
 }

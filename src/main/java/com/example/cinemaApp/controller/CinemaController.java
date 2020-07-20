@@ -1,7 +1,9 @@
 package com.example.cinemaApp.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.example.cinemaApp.dto.AuditoriumDTO;
 import com.example.cinemaApp.dto.CinemaDTO;
 import com.example.cinemaApp.models.Auditorium;
 import com.example.cinemaApp.models.Cinema;
@@ -31,26 +33,36 @@ public class CinemaController {
     private AuditoriumService auditoriumService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<Cinema>> getCinemas() {
+    public ResponseEntity<List<CinemaDTO>> getCinemas() {
         // ! podsetnik: koriscen je JsonIgnore u modelu, zato sto dolazi do beskonacne
         // rekurzije
-        List<Cinema> cinemas;
-        cinemas = cinemaService.findAll();
+        List<Cinema> cinemas = cinemaService.findAll();
 
-        // List<CinemaDTO> cinemaDTOS = new ArrayList<>();
+        List<CinemaDTO> cinemasDTOS = new ArrayList<>();
 
-        // for (Cinema cinema : cinemas) {
-        // CinemaDTO cinemaDTO = new CinemaDTO(cinema.getId(), cinema)
+        for (Cinema cinema : cinemas) {
+            CinemaDTO cinemaDTO = new CinemaDTO(cinema.getId(), cinema.getName(), cinema.getAddress(),
+                    cinema.getPhoneNumber(), cinema.getEmail());
+            cinemasDTOS.add(cinemaDTO);
+            // nema managera zbog beskonacne rekurzije, nisu ni potrebni
+        }
 
-        // }
-
-        return new ResponseEntity<>(cinemas, HttpStatus.OK);
+        return new ResponseEntity<List<CinemaDTO>>(cinemasDTOS, HttpStatus.OK);
     }
 
+    // treba da prepravim u create cisto da svuda bude isto
     @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json")
-    public ResponseEntity createCinema(@RequestBody CinemaDTO cinemaDTO) {
-        return new ResponseEntity<>(cinemaDTO, HttpStatus.CREATED);
-        // ! acc - created return new ResponseEntity<>(, HttpStatus.ACCEPTED);
+    public ResponseEntity<CinemaDTO> createCinema(@RequestBody CinemaDTO cinemaDTO) {
+
+        Cinema cinema = new Cinema(cinemaDTO.getName(), cinemaDTO.getAddress(), cinemaDTO.getPhoneNumber(),
+                cinemaDTO.getEmail(), cinemaDTO.getManager());
+
+        Cinema newCinema = cinemaService.save(cinema);
+
+        CinemaDTO newCinemaDTO = new CinemaDTO(newCinema.getName(), newCinema.getAddress(), newCinema.getPhoneNumber(),
+                newCinema.getEmail(), newCinema.getManager());
+
+        return new ResponseEntity<>(newCinemaDTO, HttpStatus.CREATED);
     }
 
     // * brisanje
@@ -63,6 +75,7 @@ public class CinemaController {
         }
 
         cinema.getAuditoriums().clear();
+        // i managere
 
         cinemaService.delete(id);
 
@@ -81,13 +94,20 @@ public class CinemaController {
 
     // * lista auditoriuma od bioskopa sa id-em
     @RequestMapping(value = "/{id}/auditoriumlist", method = RequestMethod.GET)
-    public ResponseEntity<List<Auditorium>> getCinemasAuditoriums(@PathVariable Integer id) {
+    public ResponseEntity<List<AuditoriumDTO>> getCinemasAuditoriums(@PathVariable Integer id) {
 
         Cinema cinema = cinemaService.findOne(id);
 
         List<Auditorium> auditoriums = this.auditoriumService.findByCinema(cinema);
+        List<AuditoriumDTO> auditoriumsDTOS = new ArrayList<>();
 
-        return new ResponseEntity<List<Auditorium>>(auditoriums, HttpStatus.OK);
+        for (Auditorium auditorium : auditoriums) {
+            AuditoriumDTO auditoriumDTO = new AuditoriumDTO(auditorium.getId(), auditorium.getCapacity(),
+                    auditorium.getLabel());
+            auditoriumsDTOS.add(auditoriumDTO);
+        }
+
+        return new ResponseEntity<List<AuditoriumDTO>>(auditoriumsDTOS, HttpStatus.OK);
     }
 
 }

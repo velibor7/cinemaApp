@@ -74,8 +74,6 @@ public class AuditoriumController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        // auditorium.getCinemas().clear();
-
         auditoriumService.delete(id);
 
         return new ResponseEntity<Auditorium>(auditorium, HttpStatus.OK);
